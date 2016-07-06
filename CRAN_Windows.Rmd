@@ -1,0 +1,24 @@
+---
+title: "R Download Instructions for Windows OS"
+author: "Curry W. Hilton"
+date: "July 5, 2016"
+output: html_document
+---
+
+- Follow link below to CRAN  
+
+[CRAN](http://cran.at.r-project.org/)  
+
+![](cran_main.png)  
+
+- Choose "Download R for Windows"  
+
+![](base.png)  
+
+- Choose "base"  
+
+![](version.png)  
+
+- Choose "Download R 3.3.1 for Windows"  
+
+- Once downloaded, choose "run" to install  

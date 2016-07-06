@@ -1,0 +1,26 @@
+---
+title: "RStudio Download Instructions"
+author: "Curry W. Hilton"
+date: "July 5, 2016"
+output: html_document
+---
+
+- Follow link below for RStudio Download
+
+[RStudio](https://www.rstudio.com/)  
+
+![](rstudio.png)
+
+- Choose "Download RStudio"
+
+![](rstudio-desk.png)
+
+- Choose "Download RStudio Desktop" (Open Source Edition)
+
+![](rstudio-installer.png)
+
+- If,
+    - Windows OS, choose "RStudio 0.99.902 - Windows Vista/7/8/10"
+    - Mac OS X, choose "RStudio 0.99.902 - Mac OS X 10.6+ (64 bit)"
+    
+- Choose "run" to install after download

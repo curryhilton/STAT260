@@ -1,0 +1,22 @@
+---
+title: "R Download Instructions for Mac OS"
+author: "Curry W. Hilton"
+date: "July 5, 2016"
+output: html_document
+---
+
+- Follow link below to CRAN  
+
+[CRAN](http://cran.at.r-project.org/)  
+
+![](cran_main.png)  
+
+- Choose "Download R for (Mac) OS X"  
+
+![](macdl.png)  
+
+- If,
+    - Mac OS X is version 10.9 (Maverick) or higher, choose R-3.3.1.pkg
+    - Mac OS X is version 10.6 (Snow Leopard) - 10.8 (Mountain Lion), choose R-3.2.1-snowleopard.pkg  
+
+- Once downloaded, choose "run" to install  

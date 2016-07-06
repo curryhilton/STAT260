@@ -2,7 +2,7 @@
 title: "Statistical Data Analysis – ST 260 - 102"
 author: "Curry W. Hilton"
 date: "July 5, 2016"
-output: pdf_document
+output: html_document
 ---
 
 #### Course Description 
@@ -53,9 +53,7 @@ All students in attendance at The University of Alabama are expected to be honor
 #### Students with Disabilities
 I am committed to teaching every student in this course. If you have a disability that will affect your performance, reasonable accommodations will be made for you. If you are registered with the Office of Disability Services, please make an appointment with me as soon as possible to discuss any course accommodations that may be necessary.  If you have a disability, but have not contacted the Office of Disability Services, please call (205) 348-4285 (Voice) or (205) 348-3081 (TTY) or visit 1000 Houser Hall to register for services. Students who may need course adaptations because of a disability are welcome to make an appointment to see me during office hours. Students with disabilities must be registered with the Office of Disability Services, 1000 Houser Hall, before receiving academic adjustments.
 
-\vspace{20 mm}
 
-\centering
-"Forewarned is Forearmed"
+**"Forewarned is Forearmed"**
     
 
