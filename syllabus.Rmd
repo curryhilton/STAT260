@@ -1,0 +1,61 @@
+---
+title: "Statistical Data Analysis – ST 260 - 102"
+author: "Curry W. Hilton"
+date: "July 5, 2016"
+output: pdf_document
+---
+
+#### Course Description 
+Introduction to the use of basic statistical concepts in business applications. Topics include extensive graphing; descriptive statistics; measures of central tendency and variation; regression, including transformations for curvature; sampling techniques; designs; conditional probability; random variables; probability distributions; sampling distributions; confidence intervals; and statistical inference. Computer software applications are utilized extensively. Emphasis throughout the course in on interpretation. Computing proficiency is required for a passing grade in this course.
+
+#### Course Objective
+The overall course objective is: *“Learn to think in a manner consistent with the existence of scarcity.”*
+
+#### Contact Information
+My office is located in the Bidgood Hall 319. I can be reached via email: cwhilton@crimson.ua.edu, or cell phone: 615.290.3434. I am highly accessible to answer any questions and prompt in my responses. Please feel free to stop by, email, call, or text. Office availability is by appointment only.  
+
+#### Meeting Information
+- Days: Monday, Tuesday, Wednesday, Thursday, Friday (Lab)
+- Time: 10:00 AM - 11:45 AM
+- Location: Bidgood 215
+
+#### Grading Distribution
+
+- Group Assignments: 10%
+- Labs: 20%
+- Problem Sets: 25%
+- Midterm Exam: 20%
+- Final Exam: 25%  
+*Potentially Take-Home Exams*
+
+Grading follows the "ten-point" scale published by the University of Alabama. Although, course grades may vary dependent on class performance. I reserve the right to modify the grading scale according to the distribution of grades and assign +/- on character grades.  I do not negotiate grades unless a mathematical error has been made on my part…do not count on it.
+
+#### Class Participation
+You are expected to come to class prepared every meeting time.  I encourage you to play an active role in class discussions.  I will certainly ask questions of you to maintain attentiveness in the classroom.  Constructive class participation can only raise your grade for the course.
+
+#### Attendance Policy
+Attendance is mandatory! This class moves at a demanding rate and requires consistent attendance to be successful. If I intend on giving a worthless lecture, I will cancel class. If I am late to class, please wait 10 minutes and then reallocate to the next best use of your time (You will be compensated for my absence or tardiness).  Even though I may not take attendance every class, I mentally keep track of attendance habits.
+
+#### Required Course Supplements
+- **Diez, D.M., Barr, C.D., Cetinkaya-Rundel, M.**, *OpenIntro Statistics* (3rd. Edition), (2015)
+    - Open source creative commons license.  Retrieved from http://www.openintro.org/stat/textbook.php
+    - Available in the UA Sup Store for $10.25 (New), $6.70 (Used), or **FREE** via the link above
+- Laptop computer is *mandatory* - Bring to class *Everyday*
+- R Statistical Software
+    - Avaialbe for **FREE**! - (http://cran.r-project.org/)
+- RStudio
+    - Available for **FREE**! - (http://www.rstudio.com/products/rstudio/download/)
+
+#### Academic Integrity
+All students in attendance at The University of Alabama are expected to be honorable and to observe standards of conduct appropriate to a community of scholars. The University of Alabama expects from its students a higher standard of conduct than the minimum required to avoid discipline. At the beginning of each semester and on examinations and projects, the professor, department, or division may require that each student sign the following Academic Honor Pledge: *“I promise or affirm that I will not at any time be involved with cheating, plagiarism, fabrication, or misrepresentation while enrolled as a student at The University of Alabama. I have read the Academic Honor Code, which explains disciplinary procedure resulting from the aforementioned. I understand that violation of this code will result in penalties as severe as indefinite suspension from the University.”*
+- See the **Code of Student Conduct** for more information - (http://policies.ua.edu/conduct.html)
+
+#### Students with Disabilities
+I am committed to teaching every student in this course. If you have a disability that will affect your performance, reasonable accommodations will be made for you. If you are registered with the Office of Disability Services, please make an appointment with me as soon as possible to discuss any course accommodations that may be necessary.  If you have a disability, but have not contacted the Office of Disability Services, please call (205) 348-4285 (Voice) or (205) 348-3081 (TTY) or visit 1000 Houser Hall to register for services. Students who may need course adaptations because of a disability are welcome to make an appointment to see me during office hours. Students with disabilities must be registered with the Office of Disability Services, 1000 Houser Hall, before receiving academic adjustments.
+
+\vspace{20 mm}
+
+\centering
+"Forewarned is Forearmed"
+    
+
