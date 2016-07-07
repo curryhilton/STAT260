@@ -71,6 +71,21 @@ beers <- c(1, 3, 4, 8, 2, 3)
 - Print the string, beers to the console
 - Type the function "ls()" in the console...what do you observe?
 
+## Indexing
+
+- In order to index or subset a string/vector of data...
+    - x[i]
+    - x[i:j]
+    
+```{r}
+beers[1]           # bring back first order placement in vector (1)
+beers[4]           # bring back fourth order placement in vector (8)
+beers[4:6]         # bring back fourth to sixth order placements in vector (8, 2, 3)
+
+```
+
+
+
 ## R Package Installation
 
 - Tools -> Install Packages ...
