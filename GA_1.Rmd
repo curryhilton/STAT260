@@ -1,0 +1,32 @@
+---
+title: 'Group Assignment #1'
+author: "Curry W. Hilton"
+date: "July 11, 2016"
+output: html_document
+---
+
+### Q1
+
+- Load the internal R dataset "faithful"
+    - First load the package: library(datasets)
+- View the dataset in the source window
+- Print only the 'waiting' variable and all associated rows to the console: *Recall*: In order to subset a dataset you can use the $ sign...for example: y$x
+- *Answer*: How many observations does the 'waiting' variable contain (Hint: number of rows)? 
+
+### Q2
+
+- Load the internal R dataset "ipod"
+    - First load the package: library(openintro)
+- View the dataset in the source window
+- *Answer*: What type of variable is 'songLength'? (Hint: str(x))
+
+### Q3
+
+- Run the following code to assign two data vectors (strings)
+```{r}
+beers <- c(4, 2, 3, 5, 9)
+pizza <- c(2, 3, 2, 1, 8)
+```
+- Create a new vector 'bp' and assign it the values of multiplying the beers and pizza vectors and then dividing the result by 2
+- *Answer*: What result of the mathematical operation above is the lowest? (Hint: Remember order of operations)
+

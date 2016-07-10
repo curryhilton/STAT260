@@ -1,7 +1,6 @@
 ---
 title: "Lecture Notes - Intro to R"
-author: "Curry W Hilton"
-date: "January 2, 2016"
+author: "Curry W. Hilton"
 output: html_document
 keep_tex: yes
 ---

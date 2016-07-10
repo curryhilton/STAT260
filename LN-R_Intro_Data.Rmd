@@ -1,0 +1,269 @@
+---
+title: "Lecture Notes - Data Types & Visualization"
+author: "Curry W. Hilton"
+output: html_document
+---
+
+## Data Types
+
+![](data_rep.png)
+
+### Numerical Data (Quantitative)
+
+Data that can be measured and recorded in "number" form
+
+- Can perform any type of mathematical operation on numerical data
+- Data can be sorted in descending/ascending order
+- Data can be expresed in decimal or fractions
+
+#### Continuous Numerical Data
+
+The possible values of continuous numerical data are considered "uncountable" on a given interval.  For example, on the interval [1,5] inclusive, there are an infinite amount of possible data values.  Such as: 1, 5, 2, 2.5, 2.7, 3.456, 4.667859402, etc.
+
+- Examples: 
+    - The bar tabs on any given night a Rounders (could be argued as discrete but close enough to continuous) 
+    - The amount of gasoline in gallons each customer pumped in a day at the Shell station
+    - The number of chips one could consume during an Alabama Football game (assumming fractions of chips could be consumed)
+
+```{r, eval=FALSE}
+library(datasets)   # load "datasets" package
+View(ToothGrowth)   # View "ToothGrowth" dataset 
+```
+
+#### Discrete Numerical Data
+
+The possible values of discrete numerical data are considered "countable" in a list.  For example, in a list from 2 - 5, there are 4 possible values {2, 3, 4, 5}.
+
+
+- Examples:
+    - The population of counties in Alabama
+    - The number of potatoes used each day at the local Five Guys
+    - The shoe size of students in Bidgood Hall
+    
+```{r, eval=FALSE}
+library(datasets)   # load "datasets" package
+View(AirPassengers) # View "AirPassengers" dataset
+```
+
+### Numerical Data Analysis - Univariate
+
+#### Descriptive Statistics 
+
+##### Mean
+
+Sum of all observations of the numerical variable of interest divided by the number of observations ($\bar{x}$ or $\mu$ depending on sample or population).
+
+$$ \mu = \frac{1}{N}\displaystyle\sum\limits_{i=1}^N(x_1...x_n)$$
+$$ \bar{x} = \frac{1}{n}\displaystyle\sum\limits_{i=1}^n(x_1...x_n)$$
+
+```{r, eval=TRUE}
+mean(AirPassengers)   # mean function called on the atomic (only variable in dataset) 
+                      # variable in "AirPassengers" dataset
+```
+
+##### Median
+
+When data is ordered in ascending order, the number in the middle is considered the median value.
+
+```{r, eval=TRUE}
+median(AirPassengers) # median function called 
+```
+
+##### Max & Min
+
+Maximum and Minimum value in a set of observations...pretty self explanatory
+
+```{r, eval=TRUE}
+max(AirPassengers)    # max function called
+min(AirPassengers)    # min function called
+```
+
+##### Variance
+
+Represents the average squared distance from the mean ($s^2$ => sample variance, $\sigma^2$ => population variance).
+
+$$ \sigma^2 = \frac{1}{N}\displaystyle\sum\limits_{i=1}^N(x_i-\mu)^2  $$
+$$ s^2 = \frac{1}{n-1}\displaystyle\sum\limits_{i=1}^n(x_i-\bar{x})^2 $$
+
+```{r, eval=TRUE}
+var(AirPassengers)   # var function called
+```
+
+
+##### Standard Deviation
+
+Represents the square root of the variance...a means of determining how close the data is from the mean value.
+
+$$ \sigma = \sqrt{\sigma^2} $$
+$$ s = \sqrt{s^2} $$
+
+```{r, eval=TRUE}
+sd(AirPassengers)    # sd function called
+```
+
+##### 6-Number Summary
+
+In R, the function "summary()" provides a 6-number summary of descriptive statistics, including the Mean, Median, 25th Percentile ($Q_1$), 75th Percentile ($Q_3$), Max, and Min.
+
+```{r, eval=TRUE}
+summary(AirPassengers)   # summary function called
+```
+
+##### Interquartile Range (IQR)
+
+The difference between the 75th Percentile and 25th Percentile.  Another measure of variability in data.  Also represents the "length" of the box from the box and whiskers plot (More to come in visualization)
+
+$$ IQR = Q_3 - Q_1 $$
+
+#### Numerical Data Visualization - Univariate
+
+##### Dot Plots
+
+A one-variable scatter plot.  The stacked version adds more value.  One can infer "balancing" point of distribution of observations...aka the mean value...think about a fulcrum.  Also the stacked dot plot displays spread of data and potential outliers.
+
+```{r, eval=FALSE}
+stripchart(beaver1$temp, method="stack", offset=0.5, pch=1)  # dot plot of temperature 
+                                                             # in "beaver1" dataset
+```
+
+![](stacked_dot.png)
+
+##### Histograms
+
+A graphical display of data measuring frequency of observations in predefined bins (intervals of data).  Useful in observing the "distribution" or shape of the data and the frequency of data points (Also known as data density).  
+
+```{r, eval=FALSE}
+hist(beaver1$temp)    # histogram of temperature in "beaver1" dataset
+```
+
+![](hist.png)
+
+- *Modal Type*: The most frequent observation in a distribution of data...when determining the mode find the most "prominent" peak in the histogram.  Modal type can be unimodal, bimodal, and multimodal.
+- *Skewness*: Direction of "tail" of data.  Measurement interpretation in ()
+    - Left Skewed: Long left tail (Negative Skewness)
+    - Right Skewed: Long right tail (Positive Skewness)
+    - No Skewness: Symmetric tails (Zero Skewness)
+
+![](skew.jpg)
+
+```{r}
+install.packages("moments")   # install the "moments" package
+```
+
+```{r}
+library(moments)              # load the moments package
+skewness(beaver1$temp)        # determine the skewness of temperature
+```
+
+##### Box and Whisker Plot
+
+Uses 5 of the 6-number summary statistics, Max, $Q_3$, Median, $Q_1$, and Min. It also uses the IQR to compute the "reach" values for the whiskers.
+
+![](box_whisker.png)
+
+Whisker Calculations:
+- Upper: $Q_3 + (1.5 * IQR)$
+- Lower: $Q_1 + (1.5 * IQR)$
+
+*Outlier Detection*: Observations that appears extreme relative to the other observations in the dataset.
+
+### Numerical Data Analysis - Multivariate
+
+#### Descriptive Statistics - Measures of Association
+
+##### Covariance
+
+A descriptive measure of linear association between variables (In our case two variables). Population Covariance => $\sigma_{xy}$; Sample Covariance => $s_{xy}$  
+
+$$\sigma_{xy} = \frac{1}{N}\displaystyle\sum\limits_{i=1}^N(x_i-\mu_x)(y_i-\mu_y)$$
+$$s_{xy} = \frac{1}{n-1}\displaystyle\sum\limits_{i=1}^N(x_i-\bar{x})(y_i-\bar{y})$$
+
+```{r, eval=FALSE}
+cov(births$weeks, births$weight)  # calculate covariance of two variables
+```
+
+Interpretation is tricky using only covariance.  One can infer negative or positive relationship based on the sign of the covariance statistic.  
+
+##### Correlation Coefficient
+
+A descriptive measure of linear association between variables that is bounded by -1 and 1.  Where the closer to |1| the statistic is the stronger the linear relationship.  More frequently used than covariance for interpretation sake. Population Correlation => $\rho_{xy}$; Sample Correltion => $r_{xy}$  
+
+$$\rho_{xy} = \frac{\sigma_{xy}}{\sigma_{x}\sigma_{y}} $$
+
+$$ r_{xy} = \frac{s_{xy}}{s_xs_y} $$
+
+```{r, eval=FALSE}
+cor(births$weeks, births$weight)   # calculate the correlation between two variables
+```
+
+#### Numerical Data Visualization - Multivariate 
+
+##### Scatter Plot
+
+Graphical means to represent the relationship between variables.
+
+```{r, eval=FALSE}
+plot(births$weeks, births$weight)   # create a scatter plot of two variables
+```
+
+![](scat.png)
+
+### Categorical Data (Qualitative)
+
+Data that can be grouped by certain attributes.
+
+#### Nominal Categorical Data (Unordered)
+
+Data that allows assignment of categories but no clear ordering or ranking of groups exist.
+
+- Examples:
+    - Gender (Female or Male)
+    - Marital Status (Married, Divorced, Single)
+
+```{r, eval=FALSE}
+library(openintro)   # load "openintro" package
+View(births)         # View "births" dataset
+```
+
+    
+#### Ordinal Categorical Data (Ordered)
+
+Data that allows assignment of categories with clear ordering or ranking among groups.
+
+- Examples: 
+    - Education Level (High School, Undergraduate, Graduate)
+    - Economics Status (Low, Medium, High)
+    - Olympic medals (Gold, Silver, Bronze)
+
+```{r, eval=FALSE}
+library(openintro)    # load "openintro" package
+View(mammals)         # View "mammals" dataset
+```
+
+### Categorical Data Analysis 
+
+#### Frequency Tables & Relative Frequency Tables
+
+Tables that summarize 1 categorical variable in terms of frequency, percentages, or proportions
+
+```{r}
+table(iris$Species)   # building a frequency table with count
+```
+
+#### Contingency Tables
+
+Tables that summarize 2 categorical variables.  Usually expressed as frequencies or proportions.
+
+```{r}
+library(openintro)
+table(births$premature, births$smoke)   # building a contingency table
+```
+
+### Bar Plots
+
+```{r, eval=FALSE}
+barplot(table(births$smoke))
+```
+
+![](bar.png)
+
