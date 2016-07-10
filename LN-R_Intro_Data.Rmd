@@ -146,7 +146,7 @@ hist(beaver1$temp)    # histogram of temperature in "beaver1" dataset
 
 ![](skew.jpg)
 
-```{r}
+```{r, eval=FALSE}
 install.packages("moments")   # install the "moments" package
 ```
 
@@ -267,3 +267,54 @@ barplot(table(births$smoke))
 
 ![](bar.png)
 
+## Mixed Data Type Visualizations
+
+```{r}
+library(ggplot2)
+library(gcookbook)
+```
+
+
+### Scatterplot: Two Numerical Variables - Grouped by Categorical Variable
+
+```{r, eval=FALSE}
+qplot(carat, price, data=diamonds,
+       colour=color)
+```
+
+![](scatter-color.png)
+
+
+### Box and Whiskers: One Numerical Variable - Grouped by Categorical Variable
+
+```{r, eval=FALSE}
+qplot(factor(cut), price, data = diamonds, geom = "boxplot")
+```
+
+![](box-whisk.png)
+
+### Box Plot: One Numerical Variable - Grouped by Two Categorical Variables
+
+```{r, eval=FALSE}
+ggplot(cabbage_exp, aes(x=Date, y=Weight, fill=Cultivar))+geom_bar(position="dodge", colour="black", stat="identity")+scale_fill_brewer(palette = "Paste1")
+```
+
+![](boxplot.png)
+
+### Correlation Matrix - Multivariate
+
+```{r, eval=FALSE}
+pairs(ChickWeight)
+```
+
+![](corr_matrix.png)
+
+### Distribution Analysis - One Numerical Variable - Grouped by Two Categorical Variables
+
+```{r, eval=FALSE}
+qplot(price, data=diamonds, geom="density", fill=cut, alpha=I(.5), 
+      main="Distribution of Price", xlab="Price", 
+      ylab="Density")
+```
+
+![](dist.png)
