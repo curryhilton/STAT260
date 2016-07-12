@@ -1,0 +1,41 @@
+---
+title: 'Group Assignment #2'
+author: "Curry W. Hilton"
+output: html_document
+---
+
+### Q1
+
+- Load the internal R dataset "MLB"
+    - First load the package: library(openintro)
+- View the dataset in the source window
+- Determine the mean and median of the variable 'salary'
+- What does this tell us about the skewness of the distribution?
+- Prove your findings by generating a histogram for the variable
+- *Answer*: True of False: The distribution of the variable 'salary' is considered left skewed.  
+
+### Q2
+
+- Load the internal R dataset "ageAtMar"
+    - First load the package: library(openintro)
+- View the dataset in the source window
+- Calculate the 6-number summary for the variable 'age'
+- Generate a boxplot for the variable 'age'
+- Observe the connections between the 6-number summary and the boxplot
+- *Answer*: True or False: The 75% (Q3) percentile is the "top" line of the box on the boxplot.
+
+### Q3
+
+- Load the internal R dataset "gifted"
+    - First load the package: library(openintro)
+- View the dataset in the source window
+- Calculate the mean, variance, and standard deviation of the variable 'cartoons'
+- *Answer*: What is the IQR of the variable 'edutv'?
+
+### Q4
+
+- Using the previously loaded internal R dataset "gifted"...
+- What type of relationship do you believe exists between how a "gifted" kid scores on an aptitude test and their mother's IQ?  Rhetorical question...
+- Create a scatterplot (plot(x, y)) for the variables, 'motheriq' (x) and 'score' (y)
+- What type of relationship exists based on the scatterplot?  Does this confirm your initial thoughts?
+- *Answer*: In order to be more definitive, calculate the correlation coefficient for the two variables and record your answer.
