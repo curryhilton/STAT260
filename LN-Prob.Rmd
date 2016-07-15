@@ -1,0 +1,282 @@
+---
+title: "Lecture Notes - Probability & Distributions of Random Variables"
+author: "Curry W. Hilton"
+output: html_document
+---
+
+# Basic Probability
+
+#### Experiment: 
+
+An activity or process whose outcome possesses uncertainty
+
+#### Sample Space:
+
+Set of all possible outcomes of an experiment ($\delta$)
+
+#### Event:
+
+A collection of outcomes contained in the sample space
+
+### Dice Roll
+
+- *Experiment*: Roll a dice one time and record the outcome 
+- *Sample Space*: 
+- *Events*: {6}, {An even number}, {A number divisible by 2}
+
+### Coin Toss
+
+- *Experiment*: Flip a coin three times and record the outcomes (No order necessary)
+- *Sample Space*: 
+- *Events*: {H, H, H}, {H, T, T}, {H, T, H}
+
+### Set Theory
+
+![](set_theory.png)
+
+#### Union:
+
+$A \cup B$ "A or B" An event consisting of all outcomes in either A or in B or in both
+
+#### Intersection:
+
+$A \cap B$ "A and B" An event consisting of all outcomes that are in both A and B
+
+#### Complement:
+
+$A^{c}$ Set all outcomes in the $\delta$ that are not contained in A
+
+#### Disjoint or Mutually Exclusive:
+
+$\emptyset$ "Null event" $A \cap B = \emptyset$
+
+### Example
+
+Let $A=${0, 1, 2, 3, 4}, $B=${3, 4, 5, 6}, and $C$={1, 3, 5}. Assume the $\delta$ = {0, 1, 2, 3, 4, 5, 6}
+
+- $A^{c} =$
+- $A \cup B =$
+- $A \cap B =$
+- $A \cap C =$
+- $(A \cap C)^{c} =$
+
+### Probability & A Few Properties
+
+A probability measure or probability $P$ is an assignment of a real number $P(A)$ to each event $A$ in $\delta$ that satisfies the following axioms:
+
+1. $P(\emptyset)=0$
+2. $P(\delta) = 1$
+3. $0 \leq P(A) \leq 1$
+4. If events $A$ and $B$ are *disjoint* then $A \cap B = \emptyset$ and $P(A \cup B) = P(A) + P(B)$
+
+For any event $A$: 
+
+- $P(A) + P(A^{c})=1$
+- $P(A) \leq 1$
+
+For any two events $A$ and $B$:
+
+- $P(A \cup B) = P(A)+P(B)-P(A \cap B)$
+
+**In basic terms...probability is a measure of how likely an event will occur, where the closer the probability is to zero the less likely the event will occur and the closer the probability is to one the more likely the event will occur.**
+
+# Distributions of Random Variables
+
+## Discrete Probability Distributions
+
+### Binomial Probability Distribution
+
+#### Conditions
+
+1. Experiment consists of subset experiments, trials $(n)$ where $n$ is fixed before the experiment occurs
+2. Each trial results in a binary outcome, success $(S)$ or failure $(F)$
+3. Each trial is independent 
+4. Probability of $P(S)$ is constant among trials
+
+### Binomial Random Variable X
+
+$X$ = the number of successes among the $n$ trials
+
+### Distribution
+
+$$b(x; n, p) = {n \choose x}p^x(1-p)^{n-x}$$
+
+Where, $x$ = number of successes from 0 to $\infty$ in discrete movements; $n$ = number of trials; $p$ = the probability of success
+
+*Note*: ${n \choose x} = \frac{n!}{x!(n-x)!}$
+
+**Mean**: $E[X] = np$
+
+**Variance**: $Var[X] = np(1-p)$
+
+### R - Binomial
+
+```{r, eval=FALSE}
+dbinom(x, size, prob, log = FALSE)                         # probability according to random value, x
+pbinom(q, size, prob, lower.tail = TRUE, log.p = FALSE)    # probability according to quantile (cumulative)
+qbinom(p, size, prob, lower.tail = TRUE, log.p = FALSE)    # quantile according to probability
+rbinom(n, size, prob)                                      # random selection 
+
+# x = value of random value, x
+# q = quantile (x) 
+# p = probability
+# n = number of random generations
+# size = number of observations in experiment
+# prob = probability of event occurring
+```
+*Note* lower.tail => $P[X \leq x]$, otherwise, $P[X>x]$
+
+### Example 
+
+Each of six randomly selected cola drinkers is given a glass containing cola S and one containing cola F. The glasses are identical in appearance except for a code on the bottom to identify the cola.  Suppose there is actually no tendency among cola drinkers to prefer one cola to the other.  The p = P(a selected individual prefers S) = 0.5, so with X = the number among the six who prefer S, X ~ Binomial(6, 0.5).
+
+1. What is the probability that exactly three individuals prefer S?
+
+2. What is the probability that at least three prefer S?
+
+3. What is the mean and variance of the distribution given the parameters?
+
+### Hypergeometric Probability Distribution
+
+#### Conditions
+
+1. Each trial is *not* independent 
+2. Probability of $P(S)$ is *not* constant among trials
+3. Sampling *without* replacement
+
+### Hypergeometric Random Variable X
+
+$X$ = the number of successes among the $n$ trials
+
+### Distribution
+
+$$h(x; n, r, N) = \frac{{m \choose x}{N-m \choose n-x}}{N \choose n}$$
+
+Where, $x$ = number of successes from 0 to $\infty$ in discrete movements; $n$ = number of trials; $m$ = the number of elements in the population considered a success; $N$ = number of elements in the population
+
+*Note*: ${n \choose x} = \frac{n!}{x!(n-x)!}$
+
+**Mean**: $E[X] = \frac{nm}{N}$
+
+**Variance**: $Var[X] = n (\frac{m}{N}) (1-\frac{m}{N}) (\frac{N-n}{N-1})$
+
+### R - Hypergeometric
+
+```{r,eval=FALSE}
+dhyper(x, m, n, k, log = FALSE)                        # probability according to random value, x
+phyper(q, m, n, k, lower.tail = TRUE, log.p = FALSE)   # probability according to quantile (cumulative)
+qhyper(p, m, n, k, lower.tail = TRUE, log.p = FALSE)   # quantile according to probability
+rhyper(nn, m, n, k)                                    # random selection 
+
+# x = value of random value, x
+# q = quantile (x) 
+# m = number of successes
+# n = number of failures
+# k = number of trials
+# nn = number of random generations
+
+```
+
+### Example 
+
+In a standard deck of cards (52 cards), 4 aces exist.  Suppose you draw 3 cards out of the deck *without* replacement.  
+
+1. What is the probability that of the three cards selected two are aces?
+
+2. What is the probability that at least one of the cards is an ace?
+
+### Geometric Probability Distribution
+
+#### Conditions
+
+1. Each trial is independent 
+2. Probability of $P(S)$ is constant among trials
+
+### Geometric Random Variable X
+
+$X$ = the number of trials on which the first success occurs
+
+### Distribution
+
+$$g(x; p) = (1-p)^{x-1}p$$
+
+Where, $x$ = number of trials on which the first success occurs; $p$ = the probability of success on each trial
+
+
+**Mean**: $E[X] = \frac{1}{p}$
+
+**Variance**: $Var[X] = \frac{(1-p)}{p^2}$
+
+### R - Geometric
+
+```{r, eval=FALSE}
+dgeom(x, prob, log = FALSE)                       # probability according to random value, x
+pgeom(q, prob, lower.tail = TRUE, log.p = FALSE)  # probability according to quantile (cumulative)
+qgeom(p, prob, lower.tail = TRUE, log.p = FALSE)  # quantile according to probability
+rgeom(n, prob)                                    # random selection
+
+# x = number of failures until first success, x
+# q = quantile (x) 
+# p = probability
+# n = number of observations
+# k = number of trials
+# prob = probability of event occurring
+```
+
+### Example 
+
+Tanner is known for his mad beer pong skills (https://en.wikipedia.org/wiki/Beer_pong). Over multiple years he has reﬁned the art and only misses the cup 10% of the time when “shooting”. Assume each shot is independent of the next and the previous. 
+
+1. What is the probability that his 3rd shot is a miss?
+
+2. On average how many times will Tanner "make" the shot in a row before he misses?
+
+### Poisson Probability Distribution
+
+#### Conditions
+
+1. Probability of occurence is constant among all intervals 
+2. Independence among occurrence among all intervals
+
+### Poisson Random Variable X
+
+$X$ = the number of occurrences of a relatively rare phenomenom in a fixed interval of time or space
+
+### Distribution
+
+$$po(x; \lambda) = \frac{e^{-\lambda} \lambda^x}{x!}$$
+
+Where, $x$ = number of occurrences of a relatively rare phenomenom in a fixed interval of time or space; $e$ = 2.718128, $\lambda$ = expected value of occurrences in an interval
+
+
+**Mean**: $E[X] = \lambda$
+
+**Variance**: $Var[X] = \lambda$
+
+### R - Poisson
+
+```{r, eval=FALSE}
+dpois(x, lambda, log = FALSE)                        # probability according to random value, x        
+ppois(q, lambda, lower.tail = TRUE, log.p = FALSE)   # probability according to quantile (cumulative)
+qpois(p, lambda, lower.tail = TRUE, log.p = FALSE)   # quantile according to probability
+rpois(n, lambda)                                     # random selection
+
+# x = number of failures until first success, x
+# q = quantile (x) 
+# p = probability
+# lambda = expected value of occurrences in an interval
+```
+
+### Example 
+
+At the verizon call center, phone calls from disgruntled customers are received at roughly 50 per hour.  
+
+1. What is the probability of receiving three calls in a 5-minute interval?
+
+2. What is the probability of receiving no calls in a 1-minute interval?
+
+### Other Common Discrete Probability Distributions
+
+1. Negative Binomial
+2. Uniform
+
