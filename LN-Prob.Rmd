@@ -261,7 +261,7 @@ ppois(q, lambda, lower.tail = TRUE, log.p = FALSE)   # probability according to 
 qpois(p, lambda, lower.tail = TRUE, log.p = FALSE)   # quantile according to probability
 rpois(n, lambda)                                     # random selection
 
-# x = number of failures until first success, x
+# x = number of events occurrring within a certain interval, x
 # q = quantile (x) 
 # p = probability
 # lambda = expected value of occurrences in an interval
@@ -279,4 +279,151 @@ At the verizon call center, phone calls from disgruntled customers are received 
 
 1. Negative Binomial
 2. Uniform
+
+## Continuous Probability Distributions
+
+### Uniform Probability Distribution
+
+### Distribution
+
+$$Uniform(a, b) = \frac{1}{b-a}$$
+
+Where, $a$ = the left hand interval; $b$ = the right hand interval
+
+![](uni.png)
+
+**Mean**: $E[X] = \frac{b+a}{2}$
+
+**Variance**: $Var[X] = \frac{(b-a)^2}{12}$
+
+### R - Uniform
+
+```{r, eval=FALSE}
+dunif(x, min = 0, max = 1, log = FALSE)                       # probability according to random value, x  
+punif(q, min = 0, max = 1, lower.tail = TRUE, log.p = FALSE)  # probability according to quantile (cumulative)
+qunif(p, min = 0, max = 1, lower.tail = TRUE, log.p = FALSE)  # quantile according to probability
+runif(n, min = 0, max = 1)                                    # random selection
+ 
+# x = number, x
+# q = quantile (x) 
+# p = probability
+# n = number of observations
+# min
+# max
+
+```
+
+### Example 
+
+Southwest airlines passenger planes travel from Birmingham, AL to Raleigh, NC on a time schedule that is considered distributed uniformly between 120 minutes and 160 minutes.  
+
+1. What is the probability that the duration of the plane trip is shorter than 142 minutes?
+
+2. What is the expected duration of any given plane trip?
+
+### Normal Probability Distribution
+
+A continuous random variable $X$ is said to be normally distributed with parameters $\mu$ and $\sigma$ where $-\infty < \mu < \infty$ and $\sigma >0$
+
+### Distribution
+
+$$f(x;\mu, \sigma) = \frac{1}{\sqrt{2\pi}\sigma}e^{\frac{-(x-\mu)^2}{2\sigma^2}}$$
+
+Where, $-\infty < x < \infty$
+
+### Standardizing Random Variables
+
+$$z = \frac{x-\mu}{\sigma}$$
+
+### Standard Normal Distribution
+
+$$f(z;0,1) = \frac{1}{\sqrt{2\pi}}e^{\frac{z^2}{2}}$$
+
+Where, $-\infty < z < \infty$
+
+![](norm.png)
+
+### Inverse Normal Derivation
+
+$$z = \frac{x-\mu}{\sigma}$$
+$$z\sigma = x - \mu$$
+$$x = z\sigma + \mu$$
+
+### R - Normal
+
+```{r, eval=FALSE}
+pnorm(q, mean = 0, sd = 1, lower.tail = TRUE, log.p = FALSE)  # probability according to quantile (cumulative)
+qnorm(p, mean = 0, sd = 1, lower.tail = TRUE, log.p = FALSE)  # quantile according to probability
+rnorm(n, mean = 0, sd = 1)                                    # random selection
+
+# x = number, x
+# q = quantile (x) 
+# p = probability
+# n = number of observations
+# mean = mean of the normal distribution
+# sd = standard deviation of the normal distribution
+```
+
+
+### Example
+
+The yield strength (ksi) for A36 grade steel is normally distributed with $\mu$ = 21 and $\sigma$ = 4
+
+1. What is the probability that yield strength is at most 27?
+
+2. What is the probability that yield strength is greater than 34?
+
+3. What is the probability that yield strength is between 18 and 25?
+
+4. What is the yield strength that separates the strongest 75% from the others?
+
+5. What is the probability that yield strength is 31?
+
+### Exponential Probability Distribution
+
+### Distribution
+
+$$Exp(x) = \frac{1}{\beta}e^{\frac{-x}{\beta}}$$
+
+Where, $x$ = time between events or time required for an activity; $\beta$ = expected value or mean; $e$ = 2.718128
+
+![](exp.png)
+
+**Mean**: $E[X] = \beta$
+
+**Variance**: $Var[X] = \beta^2$
+
+### R - Exponential
+
+```{r, eval=FALSE}
+pexp(q, rate = 1, lower.tail = TRUE, log.p = FALSE)   # probability according to quantile (cumulative)
+qexp(p, rate = 1, lower.tail = TRUE, log.p = FALSE)   # quantile according to probability
+rexp(n, rate = 1)                                     # random selection
+
+# x = number, x
+# q = quantile (x) 
+# p = probability
+# n = number of observations
+# rate = time component
+```
+
+### Example
+
+The arrival time of automobiles at the intersection of McFarland and 15th street follows an exponential distribution with a mean of 10 seconds.
+
+1. What is the probability that the arrival time between cars at the intersection is 4 seconds or more?
+
+2. What is the probability that the arrival time between cars at the intersection is 8 seconds or less?
+
+### Other Common Continuous Probability Distributions
+
+1. Gamma
+2. Beta
+3. Weibull
+4. F
+5. t
+6. Chi-squared
+
+
+
 
