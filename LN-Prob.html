@@ -253,10 +253,26 @@ rbinom(n, size, prob)                                      # random selection
 <h3>Example</h3>
 <p>Each of six randomly selected cola drinkers is given a glass containing cola S and one containing cola F. The glasses are identical in appearance except for a code on the bottom to identify the cola. Suppose there is actually no tendency among cola drinkers to prefer one cola to the other. The p = P(a selected individual prefers S) = 0.5, so with X = the number among the six who prefer S, X ~ Binomial(6, 0.5).</p>
 <ol style="list-style-type: decimal">
-<li><p>What is the probability that exactly three individuals prefer S?</p></li>
-<li><p>What is the probability that at least three prefer S?</p></li>
-<li><p>What is the mean and variance of the distribution given the parameters?</p></li>
+<li>What is the probability that exactly three individuals prefer S?</li>
 </ol>
+<pre class="r"><code>dbinom(3, 6, 0.5)</code></pre>
+<pre><code>## [1] 0.3125</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>What is the probability that at least three prefer S?</li>
+</ol>
+<pre class="r"><code>pbinom(2, 6, 0.5, lower.tail = FALSE)</code></pre>
+<pre><code>## [1] 0.65625</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>What is the mean and variance of the distribution given the parameters?</li>
+</ol>
+<pre class="r"><code>n &lt;- 6
+p &lt;- 0.5
+mean &lt;- n*p
+mean</code></pre>
+<pre><code>## [1] 3</code></pre>
+<pre class="r"><code>variance &lt;- n*p*(1-p)
+variance</code></pre>
+<pre><code>## [1] 1.5</code></pre>
 </div>
 <div id="hypergeometric-probability-distribution" class="section level3">
 <h3>Hypergeometric Probability Distribution</h3>
@@ -299,9 +315,15 @@ rhyper(nn, m, n, k)                                    # random selection
 <h3>Example</h3>
 <p>In a standard deck of cards (52 cards), 4 aces exist. Suppose you draw 3 cards out of the deck <em>without</em> replacement.</p>
 <ol style="list-style-type: decimal">
-<li><p>What is the probability that of the three cards selected two are aces?</p></li>
-<li><p>What is the probability that at least one of the cards is an ace?</p></li>
+<li>What is the probability that of the three cards selected two are aces?</li>
 </ol>
+<pre class="r"><code>dhyper(2, 4, 48, 3)</code></pre>
+<pre><code>## [1] 0.01303167</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>What is the probability that at least one of the cards is an ace?</li>
+</ol>
+<pre class="r"><code>phyper(0, 4, 48, 3, lower.tail = FALSE)</code></pre>
+<pre><code>## [1] 0.2173756</code></pre>
 </div>
 <div id="geometric-probability-distribution" class="section level3">
 <h3>Geometric Probability Distribution</h3>
@@ -342,9 +364,17 @@ rgeom(n, prob)                                    # random selection
 <h3>Example</h3>
 <p>Tanner is known for his mad beer pong skills (<a href="https://en.wikipedia.org/wiki/Beer_pong" class="uri">https://en.wikipedia.org/wiki/Beer_pong</a>). Over multiple years he has reﬁned the art and only misses the cup 10% of the time when “shooting”. Assume each shot is independent of the next and the previous.</p>
 <ol style="list-style-type: decimal">
-<li><p>What is the probability that his 3rd shot is a miss?</p></li>
-<li><p>On average how many times will Tanner “make” the shot in a row before he misses?</p></li>
+<li>What is the probability that his 3rd shot is a miss?</li>
 </ol>
+<pre class="r"><code>dgeom(2, 0.1)</code></pre>
+<pre><code>## [1] 0.081</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>On average how many times will Tanner “make” the shot in a row before he misses?</li>
+</ol>
+<pre class="r"><code>p &lt;- 0.1
+mean &lt;- 1/p
+mean</code></pre>
+<pre><code>## [1] 10</code></pre>
 </div>
 <div id="poisson-probability-distribution" class="section level3">
 <h3>Poisson Probability Distribution</h3>
@@ -383,9 +413,15 @@ rpois(n, lambda)                                     # random selection
 <h3>Example</h3>
 <p>At the verizon call center, phone calls from disgruntled customers are received at roughly 50 per hour.</p>
 <ol style="list-style-type: decimal">
-<li><p>What is the probability of receiving three calls in a 5-minute interval?</p></li>
-<li><p>What is the probability of receiving no calls in a 1-minute interval?</p></li>
+<li>What is the probability of receiving three calls in a 5-minute interval?</li>
 </ol>
+<pre class="r"><code>dpois(3, lambda = ((50/60)*5))</code></pre>
+<pre><code>## [1] 0.1869195</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>What is the probability of receiving no calls in a 1-minute interval?</li>
+</ol>
+<pre class="r"><code>dpois(0, lambda = ((50/60)))</code></pre>
+<pre><code>## [1] 0.4345982</code></pre>
 </div>
 <div id="other-common-discrete-probability-distributions" class="section level3">
 <h3>Other Common Discrete Probability Distributions</h3>
@@ -429,9 +465,18 @@ runif(n, min = 0, max = 1)                                    # random selection
 <h3>Example</h3>
 <p>Southwest airlines passenger planes travel from Birmingham, AL to Raleigh, NC on a time schedule that is considered distributed uniformly between 120 minutes and 160 minutes.</p>
 <ol style="list-style-type: decimal">
-<li><p>What is the probability that the duration of the plane trip is shorter than 142 minutes?</p></li>
-<li><p>What is the expected duration of any given plane trip?</p></li>
+<li>What is the probability that the duration of the plane trip is shorter than 142 minutes?</li>
 </ol>
+<pre class="r"><code>punif(142, min = 120, max = 160)</code></pre>
+<pre><code>## [1] 0.55</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>What is the expected duration of any given plane trip?</li>
+</ol>
+<pre class="r"><code>min &lt;- 120
+max &lt;- 160
+mean &lt;- (min+max)/2
+mean</code></pre>
+<pre><code>## [1] 140</code></pre>
 </div>
 <div id="normal-probability-distribution" class="section level3">
 <h3>Normal Probability Distribution</h3>
@@ -476,12 +521,29 @@ rnorm(n, mean = 0, sd = 1)                                    # random selection
 <h3>Example</h3>
 <p>The yield strength (ksi) for A36 grade steel is normally distributed with <span class="math inline">\(\mu\)</span> = 21 and <span class="math inline">\(\sigma\)</span> = 4</p>
 <ol style="list-style-type: decimal">
-<li><p>What is the probability that yield strength is at most 27?</p></li>
-<li><p>What is the probability that yield strength is greater than 34?</p></li>
-<li><p>What is the probability that yield strength is between 18 and 25?</p></li>
-<li><p>What is the yield strength that separates the strongest 75% from the others?</p></li>
-<li><p>What is the probability that yield strength is 31?</p></li>
+<li>What is the probability that yield strength is at most 27?</li>
 </ol>
+<pre class="r"><code>pnorm(27, mean = 21, sd = 4)</code></pre>
+<pre><code>## [1] 0.9331928</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>What is the probability that yield strength is greater than 34?</li>
+</ol>
+<pre class="r"><code>pnorm(34, mean = 21, sd = 4, lower.tail = FALSE)</code></pre>
+<pre><code>## [1] 0.000577025</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>What is the probability that yield strength is between 18 and 25?</li>
+</ol>
+<pre class="r"><code>pnorm(25, mean = 21, sd = 4) - pnorm(18, mean = 21, sd = 4)</code></pre>
+<pre><code>## [1] 0.6147174</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>What is the yield strength that separates the strongest 75% from the others?</li>
+</ol>
+<pre class="r"><code>qnorm(0.75, mean = 21, sd =4)</code></pre>
+<pre><code>## [1] 23.69796</code></pre>
+<ol start="5" style="list-style-type: decimal">
+<li>What is the probability that yield strength is 31?</li>
+</ol>
+<pre class="r"><code># Not able to calcualte</code></pre>
 </div>
 <div id="exponential-probability-distribution" class="section level3">
 <h3>Exponential Probability Distribution</h3>
@@ -507,15 +569,21 @@ rexp(n, rate = 1)                                     # random selection
 # q = quantile (x) 
 # p = probability
 # n = number of observations
-# rate = time component</code></pre>
+# rate = 1/mean(beta)</code></pre>
 </div>
 <div id="example-7" class="section level3">
 <h3>Example</h3>
 <p>The arrival time of automobiles at the intersection of McFarland and 15th street follows an exponential distribution with a mean of 10 seconds.</p>
 <ol style="list-style-type: decimal">
-<li><p>What is the probability that the arrival time between cars at the intersection is 4 seconds or more?</p></li>
-<li><p>What is the probability that the arrival time between cars at the intersection is 8 seconds or less?</p></li>
+<li>What is the probability that the arrival time between cars at the intersection is 4 seconds or more?</li>
 </ol>
+<pre class="r"><code>pexp(4, rate = 1/10, lower.tail = FALSE)</code></pre>
+<pre><code>## [1] 0.67032</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>What is the probability that the arrival time between cars at the intersection is 8 seconds or less?</li>
+</ol>
+<pre class="r"><code>pexp(8, rate = 1/10)</code></pre>
+<pre><code>## [1] 0.550671</code></pre>
 </div>
 <div id="other-common-continuous-probability-distributions" class="section level3">
 <h3>Other Common Continuous Probability Distributions</h3>

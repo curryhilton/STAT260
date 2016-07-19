@@ -132,9 +132,26 @@ Each of six randomly selected cola drinkers is given a glass containing cola S a
 
 1. What is the probability that exactly three individuals prefer S?
 
+```{r}
+dbinom(3, 6, 0.5)
+```
+
 2. What is the probability that at least three prefer S?
 
+```{r}
+pbinom(2, 6, 0.5, lower.tail = FALSE)
+```
+
 3. What is the mean and variance of the distribution given the parameters?
+
+```{r}
+n <- 6
+p <- 0.5
+mean <- n*p
+mean
+variance <- n*p*(1-p)
+variance
+```
 
 ### Hypergeometric Probability Distribution
 
@@ -183,7 +200,16 @@ In a standard deck of cards (52 cards), 4 aces exist.  Suppose you draw 3 cards 
 
 1. What is the probability that of the three cards selected two are aces?
 
+```{r}
+dhyper(2, 4, 48, 3)
+```
+
 2. What is the probability that at least one of the cards is an ace?
+
+```{r}
+phyper(0, 4, 48, 3, lower.tail = FALSE)
+```
+
 
 ### Geometric Probability Distribution
 
@@ -229,7 +255,17 @@ Tanner is known for his mad beer pong skills (https://en.wikipedia.org/wiki/Beer
 
 1. What is the probability that his 3rd shot is a miss?
 
+```{r}
+dgeom(2, 0.1)
+```
+
 2. On average how many times will Tanner "make" the shot in a row before he misses?
+
+```{r}
+p <- 0.1
+mean <- 1/p
+mean
+```
 
 ### Poisson Probability Distribution
 
@@ -273,7 +309,15 @@ At the verizon call center, phone calls from disgruntled customers are received 
 
 1. What is the probability of receiving three calls in a 5-minute interval?
 
+```{r}
+dpois(3, lambda = ((50/60)*5))
+```
+
 2. What is the probability of receiving no calls in a 1-minute interval?
+
+```{r}
+dpois(0, lambda = ((50/60)))
+```
 
 ### Other Common Discrete Probability Distributions
 
@@ -319,7 +363,18 @@ Southwest airlines passenger planes travel from Birmingham, AL to Raleigh, NC on
 
 1. What is the probability that the duration of the plane trip is shorter than 142 minutes?
 
+```{r}
+punif(142, min = 120, max = 160)
+```
+
 2. What is the expected duration of any given plane trip?
+
+```{r}
+min <- 120
+max <- 160
+mean <- (min+max)/2
+mean
+```
 
 ### Normal Probability Distribution
 
@@ -371,13 +426,33 @@ The yield strength (ksi) for A36 grade steel is normally distributed with $\mu$ 
 
 1. What is the probability that yield strength is at most 27?
 
+```{r}
+pnorm(27, mean = 21, sd = 4)
+```
+
 2. What is the probability that yield strength is greater than 34?
+
+```{r}
+pnorm(34, mean = 21, sd = 4, lower.tail = FALSE)
+```
 
 3. What is the probability that yield strength is between 18 and 25?
 
+```{r}
+pnorm(25, mean = 21, sd = 4) - pnorm(18, mean = 21, sd = 4)
+```
+
 4. What is the yield strength that separates the strongest 75% from the others?
 
+```{r}
+qnorm(0.75, mean = 21, sd =4)
+```
+
 5. What is the probability that yield strength is 31?
+
+```{r}
+# Not able to calcualte
+```
 
 ### Exponential Probability Distribution
 
@@ -404,7 +479,7 @@ rexp(n, rate = 1)                                     # random selection
 # q = quantile (x) 
 # p = probability
 # n = number of observations
-# rate = time component
+# rate = 1/mean(beta)
 ```
 
 ### Example
@@ -413,7 +488,15 @@ The arrival time of automobiles at the intersection of McFarland and 15th street
 
 1. What is the probability that the arrival time between cars at the intersection is 4 seconds or more?
 
+```{r}
+pexp(4, rate = 1/10, lower.tail = FALSE)
+```
+
 2. What is the probability that the arrival time between cars at the intersection is 8 seconds or less?
+
+```{r}
+pexp(8, rate = 1/10)
+```
 
 ### Other Common Continuous Probability Distributions
 
