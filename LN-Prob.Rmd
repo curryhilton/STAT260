@@ -464,6 +464,8 @@ Where, $x$ = time between events or time required for an activity; $\beta$ = exp
 
 ![](exp.png)
 
+$\beta = \frac{1}{\lambda}$
+
 **Mean**: $E[X] = \beta$
 
 **Variance**: $Var[X] = \beta^2$
@@ -479,7 +481,7 @@ rexp(n, rate = 1)                                     # random selection
 # q = quantile (x) 
 # p = probability
 # n = number of observations
-# rate = 1/mean(beta)
+# rate = 1/lambda - beta
 ```
 
 ### Example

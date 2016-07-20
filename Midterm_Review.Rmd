@@ -1,0 +1,30 @@
+---
+title: "Midterm Exam Review"
+author: "Curry W. Hilton"
+output: html_document
+---
+
+Instructions: Please select the correct answer from the choices given. Enter the “Letter” (A, B, C, or D) for multiple choice type questions and for True or False type questions, enter the “Letter” either (A or B) depending on the correct answer. This exam is due at 11:59 PM on March 10, 2016. All questions must be answered and submitted within the Midterm Exam link found on BlackBoard. No late submissions will be accepted regardless the circumstances. You are to work *independently* on this exam. You are allowed to use any resources available, notes from class, your book, the previous group assignments/problem set/labs, internet, etc. Any questions regarding wording of questions or for further clarity must be directed through me (I promise to provide a response within 1 hour from the time of the email or text). Just to reiterate, you are bound under the student conduct agreement for testing procedures and will be held accountable for any academic misconduct. Do work!
+
+### 1.
+
+The following data points have been collected in a sampling procedure: (6, 4, 2, 8, 5) Calculate the sample mean and sample median. For simplicity sake you can store the sample observations as the R object x with the code provided.
+
+```{r}
+x <- c(6, 4, 2, 8, 5)
+```
+
+A) 5, 2
+B) 8, 5
+C) 5, 5
+D) 4.78, 5
+
+-----
+
+Use the “ballBearing” dataset in the openintro package to answer the following three questions (2, 3, 4). The variable of interest in the “ballBearing” dataset is ‘lifeSpan’.
+
+### 2. 
+
+The sample mean of the ‘lifeSpan’ variable is:
+
+A) 

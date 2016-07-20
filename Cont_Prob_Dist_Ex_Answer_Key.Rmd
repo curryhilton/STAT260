@@ -1,0 +1,239 @@
+---
+title: "Continuous Probability Distribution Exercises - Answers"
+author: "Curry W. Hilton"
+output: html_document
+---
+
+### Q1
+
+A random variable, $x$ is considered to be *uniformly* distributed between 1.0 and 1.5.
+
+a. $P(x=1.25)$?
+
+```{r}
+# cannot calculate because it is a continuous distribution
+```
+
+b. $P(1.0 \leq x \leq 1.25)$?
+
+```{r}
+punif(1.25, min = 1, max = 1.5)
+```
+
+c. $P(x < 1.5)$?
+
+```{r}
+punif(1.5, min = 1, max = 1.5)
+```
+
+### Q2
+
+The battery life of most Apple iPhone's is *uniformly* distributed between 8.75 and 12 hours.
+
+a. What is the probability that the battery life for a random iPhone will be less than 10 hours?
+
+```{r}
+punif(10, min = 8.75, max = 12)
+```
+
+b. What is the probability that the battery life for a random iPhone will be more than 11 hours?
+
+```{r}
+punif(11, min = 8.75, max = 12, lower.tail = FALSE)
+```
+
+c. What is the variance battery life for any random iPhone?
+
+```{r}
+min <- 8.75
+max <- 12
+var <- ((max-min)^2)/12
+var
+```
+
+### Q3
+
+The time in hours, $t$ it requires for a package to travel UPS ground from Tuscaloosa, AL to Greensboro, NC is believed to be *uniformly* distributed between 36 and 42 hours.
+
+a. What is the expected (mean) travel time in hours for the package to be delivered?
+
+```{r}
+min <- 36
+max <- 42
+ex_val <- (min+max)/2
+ex_val
+```
+
+b. What is the probability that travel time in hours is within 2 hours of the expected (mean) travel time?
+
+```{r}
+punif(41, min = 36, max = 42) - punif(37, min = 36, max = 42)
+```
+
+### Q4 
+
+$z$ is a *standard normal* random variable.
+
+a. $P(z < 1.5)$?
+
+```{r}
+pnorm(1.5)
+```
+
+b. $P(z \leq 1.5)$?
+
+```{r}
+pnorm(1.5)
+```
+
+c. $P(z \geq -1.5)$?
+
+```{r}
+pnorm(-1.5, lower.tail = FALSE)
+```
+
+d. $P(-1.25 \leq z \leq 2.25)$?
+
+```{r}
+pnorm(2.25) - pnorm(-1.25)
+```
+
+### Q5
+
+The mean cost of domestic airplane tickets is roughly $454 with a standard deviation of $95.  Doemestic airplane tickets have been considered *normally* distributed.
+
+a. What is the probability that a domestic ticket is greater than $500?
+
+```{r}
+pnorm(500, 454, 95, lower.tail = FALSE)
+```
+
+b. What is the $z$ value associated with a domestic ticket price of $435?
+
+```{r}
+z <- (435-454)/95
+z
+```
+
+c. What is the probability that domestic ticket is between $450 and $550?
+
+```{r}
+pnorm(550, 454, 95) - pnorm(450, 454, 95)
+```
+
+d. 3% of domestic ticket prices are *above* what domestic ticket price?
+
+```{r}
+qnorm(0.03, 454, 95, lower.tail = FALSE)
+```
+
+### Q6
+
+During the 4th of July weekend families travel for vacation and spend $897 on average with standard deviation of $150. Vacation expenditure during this week follow a near *normal* distribution.
+
+a. What two vacation expenditures separate the top 25% and bottom 25% percentiles?
+
+```{r}
+low_25 <- qnorm(0.25, 897, 150)
+top_25 <- qnorm(0.25, 897, 150, lower.tail = FALSE)
+c(low_25, top_25)
+```
+
+b. What is the median of vacation expenditures?
+
+```{r}
+qnorm(0.5, 897, 150)
+```
+
+c. What is the probability that a family spends less than $500 during the 4th of July weekend?
+
+```{r}
+pnorm(500, 897, 150)
+```
+
+### Q7
+
+The time in minutes, $t$ needed to complete this assignment is *normally* distributed with mean, 60 minutes and *variance*, 100 minutes.
+
+a. What is the probability a student will require more time than 62 minutes?
+
+```{r}
+pnorm(62, 60, 10, lower.tail = FALSE)
+```
+
+b. What is the probability of a student requiring less than 50 minutes *or* more than 65 minutes?
+
+```{r}
+pnorm(50, 60, 10) + pnorm(65, 60, 10, lower.tail = FALSE)
+```
+
+c. What is the $z$ value associated with the fastest 10% of students in terms of assignment completion?
+
+```{r}
+qnorm(0.1)
+```
+
+### Q8
+
+Consider the following exponential probability distribution:
+
+$$f_x(x) = \frac{1}{8}e^{\frac{-x}{8}}$$
+
+a. $P(x \leq 6)$?
+
+```{r}
+pexp(6, rate = 1/8)
+```
+
+b. $P(x \geq 4)$?
+
+```{r}
+pexp(4, rate = 1/8, lower.tail = FALSE)
+```
+
+c. $P(3 \leq x \leq 6)$?
+
+```{r}
+pexp(6, rate = 1/8) - pexp(3, rate = 1/8)
+```
+
+d. What is the expected value (mean) of this specific exponential distribution?
+
+```{r}
+8
+```
+
+
+### Q9
+
+Take out ticket times at Hattie B's Hot Chicken in Nashville, TN is distributed exponentially with mean ticket time of 15 minutes.
+
+a. What is the probability that a take out order will be ready before 12 minutes?
+
+```{r}
+pexp(12, rate = 1/15)
+```
+
+b. What is the probability that a take out order will exceed the mean ticket time?
+
+```{r}
+pexp(15, rate = 1/15, lower.tail = FALSE)
+```
+
+### Q10
+
+The Tuscaloosa police department receives a mean rate of 1.6 calls per hour.  The distribution of calls is considered exponential.
+
+a. What is the probability that the T-town police department receives less than 3 calls per hour?
+
+```{r}
+pexp(3, rate = 1/1.6)
+```
+
+b. What is the number of calls received where 30% of the distribution of calls is below?
+
+```{r}
+qexp(0.3, rate = 1/1.6)
+```
+
+

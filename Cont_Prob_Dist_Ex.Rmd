@@ -1,0 +1,109 @@
+---
+title: "Continuous Probability Distribution Exercises"
+author: "Curry W. Hilton"
+output: html_document
+---
+
+### Q1
+
+A random variable, $x$ is considered to be *uniformly* distributed between 1.0 and 1.5.
+
+a. $P(x=1.25)$?
+
+b. $P(1.0 \leq x \leq 1.25)$?
+
+c. $P(x < 1.5)$?
+
+### Q2
+
+The battery life of most Apple iPhone's is *uniformly* distributed between 8.75 and 12 hours.
+
+a. What is the probability that the battery life for a random iPhone will be less than 10 hours?
+
+b. What is the probability that the battery life for a random iPhone will be more than 11 hours?
+
+c. What is the variance battery life for any random iPhone?
+
+### Q3
+
+The time in hours, $t$ it requires for a package to travel UPS ground from Tuscaloosa, AL to Greensboro, NC is believed to be *uniformly* distributed between 36 and 42 hours.
+
+a. What is the expected (mean) travel time in hours for the package to be delivered?
+
+b. What is the probability that travel time in hours is within 2 hours of the expected (mean) travel time?
+
+### Q4 
+
+$z$ is a *standard normal* random variable.
+
+a. $P(z < 1.5)$?
+
+b. $P(z \leq 1.5)$?
+
+c. $P(z \geq -1.5)$?
+
+d. $P(-1.25 \leq z \leq 2.25)$?
+
+### Q5
+
+The mean cost of domestic airplane tickets is roughly $454 with a standard deviation of $95.  Doemestic airplane tickets have been considered *normally* distributed.
+
+a. What is the probability that a domestic ticket is greater than $500?
+
+b. What is the $z$ value associated with a domestic ticket price of $435?
+
+c. What is the probability that domestic ticket is between $450 and $550?
+
+d. 3% of domestic ticket prices are *above* what domestic ticket price?
+
+### Q6
+
+During the 4th of July weekend families travel for vacation and spend $897 on average with standard deviation of $150. Vacation expenditure during this week follow a near *normal* distribution.
+
+a. What two vacation expenditures separate the top 25% and bottom 25% percentiles?
+
+b. What is the median of vacation expenditures?
+
+c. What is the probability that a family spends less than $500 during the 4th of July weekend?
+
+### Q7
+
+The time in minutes, $t$ needed to complete this assignment is *normally* distributed with mean, 60 minutes and *variance*, 100 minutes.
+
+a. What is the probability a student will require more time than 62 minutes?
+
+b. What is the probability of a student requiring less than 50 minutes *or* more than 65 minutes?
+
+c. What is the $z$ value associated with the fastest 10% of students in terms of assignment completion?
+
+### Q8
+
+Consider the following exponential probability distribution:
+
+$$f_x(x) = \frac{1}{8}e^{\frac{-x}{8}}$$
+
+a. $P(x \leq 6)$?
+
+b. $P(x \geq 4)$?
+
+c. $P(3 \leq x \leq 6)$?
+
+d. What is the expected value (mean) of this specific exponential distribution?
+
+### Q9
+
+Take out ticket times at Hattie B's Hot Chicken in Nashville, TN is distributed exponentially with mean ticket time of 15 minutes.
+
+a. What is the probability that a take out order will be ready before 12 minutes?
+
+b. What is the probability that a take out order will exceed the mean ticket time?
+
+
+### Q10
+
+The Tuscaloosa police department receives a mean rate of 1.6 calls per hour.  The distribution of calls is considered exponential.
+
+a. What is the probability that the T-town police department receives less than 3 calls per hour?
+
+b. What is the number of calls received where 30% of the distribution of calls is below?
+
