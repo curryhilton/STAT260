@@ -163,7 +163,7 @@ Uses 5 of the 6-number summary statistics, Max, $Q_3$, Median, $Q_1$, and Min. I
 
 Whisker Calculations:
 - Upper: $Q_3 + (1.5 * IQR)$
-- Lower: $Q_1 + (1.5 * IQR)$
+- Lower: $Q_1 - (1.5 * IQR)$
 
 *Outlier Detection*: Observations that appears extreme relative to the other observations in the dataset.
 

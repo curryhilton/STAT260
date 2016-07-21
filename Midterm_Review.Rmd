@@ -27,4 +27,263 @@ Use the “ballBearing” dataset in the openintro package to answer the followi
 
 The sample mean of the ‘lifeSpan’ variable is:
 
-A) 
+A) 6.89223
+B) 6.84922
+C) 6.72991
+D) 6.82921
+
+### 3. 
+
+The sample median of the ‘lifeSpan’ variable is:
+
+A) 6.72904
+B) 6.89223
+C) 6.72991
+D) 6.82921
+
+### 4. 
+
+The distribution of the ‘lifeSpan’ variable is considered:
+
+A) Skewed Right 
+B) Skewed Left 
+C) Symmetric 
+D) Multimodal
+
+------
+
+Use the “cars” dataset in the openintro package to answer the following three questions (5, 6, 7, 8). The variables of interest in the “cars” dataset is ‘weight’, ‘mpgCity’, ‘price’.
+
+### 5.
+
+Derive the covariance between variables ‘weight’ and ‘mpgCity’. The covariance between both variables indicates what type of relationship?
+
+A) Positive 
+B) Inverse/Negative 
+C) No relationship
+
+### 6.
+
+What is the correlation measurement between variables ‘weight’ and ‘mpgCity’?
+
+A) 0.8769183 
+B) 0.9014384 
+C) -0.9014384 
+D) -0.8769183
+
+### 7.
+
+Based on your results found in question 5 and 6, the linear strength between variables ‘weight’ and ‘mpgCity’ is considered:
+
+A) Strong positive linear relationship 
+B) Strong inverse/negative linear relationship 
+C) Strong positive non-linear relationship 
+D) Stong inverse/negative non-linear relationship
+
+### 8. 
+
+Use the following scatterplot to determine the type of relationship present between variables ‘weight’ and ‘price’.
+
+```{r}
+library(openintro)
+plot(cars$weight, cars$price)
+```
+
+A) Positive 
+B) Inverse/Negative 
+C) No relationship
+
+-------
+
+Use the following problem description to answer questions 9 & 10. John Wayne is known to be a famous Cowboy Wester star in the movies playing in such roles as “Rio Bravo” and “True Grit”. He is also a pretty good shot with a six-shooter! Suppose John Wayne enjoys target practice at old beer cans on a fence rail. It has been estimated that he is succesful in hitting the can 84% of the time. John Wayne’s trusty pair of Colt six-shooters holds 6 rounds each (total bullets = 12).  Assume his success is *binomially* distributed.
+
+### 9.
+
+What is the probability that John Wayne hits the can 8 times during one round of shooting and emptying both this six shooters?
+
+A) 0.9196 
+B) 0.0804 
+C) 0.0942 
+D) 0.8400
+
+### 10.
+
+What is the variance associated with John Waynes successful can hits during target practice?
+
+A) 10.08 
+B) 1.755 
+C) 1.6128 
+D) 1
+
+-------
+
+Use the follwoing problem description to answer questions 11, 12, & 13. The heights of female college students are considered to be *normally* distributed with mean height of 61.52 inches and standard deviation of 4.58 inches.
+
+### 11.
+
+What is the z-value (standardized value) associated with a female’s height of 64 inches?
+
+A) -0.541487 
+B) 1.73921 
+C) 2.44982 
+D) 0.541487
+
+### 12.
+
+What is the probability of a female’s height being between 1.5 standard deviations of the mean?
+
+A) 0.866 
+B) 0.889 
+C) 0.134 
+D) 0.112
+
+### 13. 
+
+What is the quantile or female’s height assoicated with the 38% percentile?
+
+A) 65.847 
+B) 64.609 
+C) 60.121 
+D) 68.754
+
+-----
+
+### 14.
+
+Use the following histogram to answer the following question.
+
+```{r}
+hist(cars$price)
+```
+
+The distribution of the variable ‘price’ in the “cars” dataset is:
+
+A) Skewed right 
+B) Skewed left 
+C) Symmetric
+
+### 15. 
+
+A variable representing the number of people in any given statistics course at the University of Alabama is best described as:
+
+A) Continuous & Numeric 
+B) Continuous & Discrete 
+C) Categorical & Discrete 
+D) Discrete & Numeric
+
+### 16.
+
+What is the approximate IQR for the given variable represented in the following box-and-whiskers plot?
+
+```{r}
+boxplot(ageAtMar$age)
+```
+
+A) 7
+B) 10
+C) 4
+D) 20
+
+-----
+
+Use the following picture and problem description to answer questions 17, 18 & 19.
+
+There are total of 50 students enrolled in the Mathematics course. Of which, 24 students are Statistics majors only. 3 students are considered double majors (Mathematics and Statistics). 8 students enrolled in the course are not Mathematics or Statistics majors.
+
+![](prob_exam.png)
+
+### 17.
+
+How many *only* Mathematics majors are enrolled in the course?
+
+A) 20 
+B) 15 
+C) 12 
+D) 0
+
+### 18.
+
+What is the probability that a student is only either a Statistics or Mathematics major? $P(Statistics \cup Mathematics)$
+
+A) 0.48 
+B) 0.78 
+C) 0.55 
+D) 0.72
+
+### 19.
+
+What is the probability that a student is Statistics major (This includes double majors too)? $P(Statistics)$
+
+A) 0.48 
+B) 0.16 
+C) 0.55 
+D) 0.54
+
+-----
+
+Use the following problem description to answer questions 20 & 21.
+
+Dell computers are assembled in manufacturing facilities in either Houston, TX or Dallas, TX.  Suppose 100 computers are produced on an hourly basis in aggregate.  Since the Houston facility is smaller than the Dallas facility it accounts for 30% of total production.  Suppose a random sample of 10 finished Dell computers is taken.  *Hypergeometric*
+
+### 20.
+
+What is the probability that 6 of the computers in the sample were produced in Dallas?
+
+A) 0.456
+B) 0.250
+C) 0.208
+D) 0.275
+
+### 21. 
+
+What is the probability that more than 4 computer in the sample were produced in Houston?
+
+A) 0.841
+B) 0.862
+C) 0.945
+D) 0.299
+
+-----
+
+Use the following problem description to answer questions 22 & 23.
+
+Consider a *Poisson* distribution with mean $(\lambda)$ of 2 occurences in any given 10 minutes.
+
+### 22.
+
+What is the probability of two occurences in 20 minutes?
+
+A) 0.147
+B) 0.250
+C) 0.238
+D) 0.215
+
+### 23.
+
+What is the probability of less than 3 occurences happening in 30 minutes?
+
+A) 0.045
+B) 0.025
+C) 0.008
+D) 0.015
+
+-----
+
+### 24. 
+
+The estimated travel time between Innisfree and Moes is distributed *uniformly* between 240 seconds and 420 seconds.  What is the probability of any given patron traveling between establishments taking longer than 310 seconds?
+
+A) 0.345
+B) 0.985
+C) 0.611
+D) 0.546
+
+### 25.
+
+The average loading time of a transfer truck at any given UPS terminal is 42 minutes.  Such distribution is considered *exponential*.  Depending on the content of the truck, times may vary.  What is the time associated with the slowest 14% of trucks being loaded?
+
+A) 6.335
+B) 42
+C) 43.562
+D) 82.577
+
