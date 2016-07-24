@@ -380,29 +380,146 @@ mean
 
 A continuous random variable $X$ is said to be normally distributed with parameters $\mu$ and $\sigma$ where $-\infty < \mu < \infty$ and $\sigma >0$
 
-### Distribution
+## Distribution
 
 $$f(x;\mu, \sigma) = \frac{1}{\sqrt{2\pi}\sigma}e^{\frac{-(x-\mu)^2}{2\sigma^2}}$$
 
 Where, $-\infty < x < \infty$
 
-### Standardizing Random Variables
+```{r, eval=FALSE}
+x <- seq(-5, 10, 0.1)
+plot(x,dnorm(x,2.5,1.5),type="l",col="blue",xlab="", 
+     ylab="Density", lwd=2, cex=2, main="PDF of Normal", cex.axis=.8)
+plot(x, cumulative<-pnorm(x, 2.5, 1.5), col="darkorange", xlab="", 
+     ylab="Cumulative Probability",type="l",lwd=2, cex=2, main="CDF of Normal", 
+     cex.axis=.8)
+```
+
+![](pdf_cdf_n.png)
+
+- The function **pnorm(x, $\mu$, $\sigma$)** computes the proportion of observations in the normal distribution that are less than or equal to x; that is $P(X \leq x)$, where X is N($\mu$, $\sigma$).
+
+- The function **pnorm(x, $\mu$, $\sigma$, lower.tail = FALSE)** computes the proportion of observations in the normal distribution that are greater than or equal to x; that is $P(X \geq x)$, where X is N($\mu$, $\sigma$).
+
+### Example:
+
+$$\mu = 50$$
+$$\sigma = 5$$
+
+What is the probability that the random variable X is less than 49 | less than or equal to 49 (Asking the same question since distribution is continuous)?
+
+```{r}
+pnorm(49, 50, 5)
+```
+
+![](example1.png)
+
+What is the probability that the random variable X is greater than or equal to 56?
+
+```{r}
+pnorm(56, 50, 5, lower.tail = FALSE)
+```
+
+![](example2.png)
+
+What is the probability that the random variable X is in between 46 and 56?
+
+```{r}
+pnorm(56, 50, 5) - pnorm(46, 50, 5)
+```
+
+![](example3.png)
+
+
+# Standardizing Random Variables
 
 $$z = \frac{x-\mu}{\sigma}$$
 
-### Standard Normal Distribution
+## Standard Normal Distribution
 
 $$f(z;0,1) = \frac{1}{\sqrt{2\pi}}e^{\frac{z^2}{2}}$$
 
 Where, $-\infty < z < \infty$
 
-![](norm.png)
+```{r, eval=FALSE}
+x <- seq(-10, 10, 0.1)
+plot(x,dnorm(x,0,1),type="l",col="blue",xlab="", 
+     ylab="Density", lwd=2, cex=2, main="PDF of Normal", cex.axis=.8)
+plot(x, cumulative<-pnorm(x, 0, 1), col="darkorange", xlab="", 
+     ylab="Cumulative Probability",type="l",lwd=2, cex=2, main="CDF of Normal", 
+     cex.axis=.8)
+```
 
-### Inverse Normal Derivation
+![](pdf_cdf_sn.png)
+
+## Parallel Normal - Standard Normal
+
+### Example
+
+$$\mu = 5$$
+$$\sigma = 1$$
+
+What is the probability that the random variable X is below 6?
+
+- Normal Approach with Normal Distribution, $X \sim N(\mu = 5, \sigma = 1)$:
+
+```{r}
+pnorm(6, 5, 1)
+```
+
+![](example4.png)
+
+- Standardized Approach with Standard Normal Distribution, $X \sim N_s(\mu = 0, \sigma = 1)$:
+
+$$z = \frac{x-\mu}{\sigma}$$
+$$z = \frac{6-5}{1} = 1$$
+
+```{r}
+pnorm(1, 0, 1)
+```
+
+![](example5.png)
+
+### 68-95-99.7 Rule
+
+![](68_95_99.png)
+
+## Inverse Normal Derivation
 
 $$z = \frac{x-\mu}{\sigma}$$
 $$z\sigma = x - \mu$$
 $$x = z\sigma + \mu$$
+
+The R function **qnorm(p, $\mu$, $\sigma$)** returns the quantile where there is a probability of $p$
+of getting a value less than or equal to it.  Basically, the quantile represents the value of $x$ that $P(X\leq x)=p$, where $p$ is given.  
+
+![](example6.png)
+
+### Example
+
+$$\mu = 15$$
+$$\sigma^2 = 25$$
+$$p = 0.274$$
+
+What is the value of the quantile (value of $x$) associated with the given $p$, which measures the probability to the left of the unknown quantile?
+
+```{r}
+qnorm(0.274, 15, 5)
+```
+
+![](example7.png)
+
+*Standardizing Approach*
+
+```{r}
+qnorm(0.274, 0, 1)
+```
+
+$$x = z\sigma - \mu$$
+$$x = -0.6007*5 + 15$$
+$$x = 11.996$$
+
+![](example8.png)
 
 ### R - Normal
 
