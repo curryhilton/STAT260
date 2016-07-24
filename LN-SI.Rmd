@@ -173,3 +173,578 @@ se_s <- sd_s/sqrt(30)
 se_s
 ```
 
+# Confidence Intervals  
+
+Represents a range of values of possible values for the parameter estimate.  So instead of offering a point estimate, say the sample mean, as the only representation of the population mean, $\mu$, we offer an interval of values that the population parameter could be.  I like the example in the book...when fishing you are more likely to catch a fish with a net than throwing a spear.  
+
+To ensure we capture the true population parameter we need to develop an interval of potential values for certain levels of confidence. Confidence intervals are created around the most "likely" estimate of the population parameter.  For example, if we are estimating the population mean ($\mu$) we will use the sample mean ($\bar{x}$) as the center of the confidence interval.  
+
+Correct interpretation of *confidence intervals*: We are xx% confident that true population parameter is between x and y.
+
+Where, $\sigma$ of the population is *known*  
+
+$$Point_{Estimate} \pm z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}$$
+
+Where, $\sigma$ of the population is *unknown* 
+
+$$Point_{Estimate} \pm t_{\frac{\alpha}{2}}\frac{s}{\sqrt{n}}$$  
+
+## Margin of Error (MOE)  
+
+$$MOE_z =  z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}$$  
+
+$$MOE_t = t_{\frac{\alpha}{2}}\frac{s}{\sqrt{n}}$$  
+
+## Common Confidence Levels (z)
+
+Keep in mind these are two-sided intervals!  
+
+   Confidence Levels (1-$\alpha$)   |     Levels of Significance ($\alpha$)   |       $z_{\frac{\alpha}{2}}$  
+------------- | -------------    | ----------------  |  ----------------
+90% - 0.90    | 10% - 0.1   | $\pm 1.645$    
+95% - 0.95    | 5% - 0.05     |   $\pm 1.960$ 
+99% - 0.99    | 1% - 0.01  |   $\pm 2.576$ 
+
+z-scores in R
+```{r}
+qnorm(0.1/2, 0, 1, lower.tail = FALSE)    # 90% z-score
+qnorm(0.05/2, 0, 1, lower.tail = FALSE)   # 95% z-score
+qnorm(0.01/2, 0, 1, lower.tail = FALSE)   # 99% z-score
+```
+
+## Common Confidence Levels (t, df)  
+
+The t-distribution takes on multiple values depending on degrees for freedom (df), where $df = n-1$.  
+
+R function with arguments for t-distribution
+
+*qt(p, df, ncp, lower.tail = TRUE, log.p = FALSE)*
+
+```{r}
+qt(0.1/2, 10, lower.tail = FALSE)       # 90% t-score with 10 df
+qt(0.1/2, 15, lower.tail = FALSE)       # 90% t-score with 15 df
+qt(0.1/2, 20, lower.tail = FALSE)       # 90% t-score with 20 df
+
+qt(0.05/2, 10, lower.tail = FALSE)      # 95% t-score with 10 df
+qt(0.05/2, 15, lower.tail = FALSE)      # 95% t-score with 15 df
+qt(0.05/2, 20, lower.tail = FALSE)      # 95% t-score with 20 df
+
+```
+
+
+### Example 1: Population Standard Deviation Known ($\sigma$)  
+
+Use the dataset "rock" and variable of interest 'area'.  Assume this represents the entire population. 
+
+Examine the histogram of the 'area' variable.  Does it appear to be distributed normally?  
+
+```{r}
+hist(rock$area)
+```
+
+Calculate the mean and standard deviation of the population.  
+
+```{r}
+mean(rock$area)
+sd(rock$area)
+```
+
+Now take a sample of size 25 from the population and name it 'samp1'.
+
+```{r}
+set.seed(123)
+samp1 <- sample(rock$area, 25)
+samp1
+```
+
+Determine the 95% Confidence Interval of the sample mean of 'samp1'.
+
+```{r}
+x_bar <- mean(samp1)                                   # calculate sample mean
+x_bar
+
+se <- 2683.849/sqrt(25)                                # calculate standard error
+se
+
+z <- qnorm(0.05/2,0,1, lower.tail = FALSE)             # z-score associated with 95% CI
+z
+
+moe <- z*se                                            # calculate moe
+moe 
+
+ci <- x_bar + (c(-1,1)*moe)                            # calculate confidence interval
+ci
+```
+
+Mathematically Approach:  
+
+$$\bar{x} = 6783.92$$  
+
+$$\sigma_{pop} = 2683.849$$  
+
+$$z_{\frac{\alpha}{2}} = 1.96$$  
+
+$$MOE_z = z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}} = 1.96(\frac{2683.849}{\sqrt{25}})=1052.069$$  
+
+$$CI_{95} = \bar{x} \pm MOE = 6783.92 \pm 1052.069 = (5731.851, 7835.989)$$  
+
+### Example 2: Population Standard Deviation Unknown ($\sigma$)  
+
+Use the dataset "run10" and variable of interest 'time'.  Assume this is population data but not fully represented...
+
+Examine the histogram of the 'time' variable.  Does it appear to be distributed normally? 
+
+```{r}
+hist(run10$time)
+```
+ 
+Since the 'run10' dataset does not fully account for the entire population, the population mean ($\mu$) and population standard deviation ($\sigma$) cannot be calculated.  
+
+Now take a sample of size 25 from the population and name it 'samp2'.
+
+```{r}
+library(openintro)
+set.seed(189)
+samp2 <- sample(run10$time, 25)
+samp2
+```
+
+
+Determine the 95% Confidence Interval of the sample mean of 'samp2'.
+
+```{r}
+x_bar <- mean(samp2)                                   # calculate sample mean
+x_bar
+
+s <- sd(samp2)                                         # sample standard deviation
+s
+
+se <- 14.26041/sqrt(25)                                # calculate standard error
+se
+
+t <- qt(0.05/2, 24, lower.tail = FALSE)                # t-score associated with 95% CI; df=24
+t
+
+moe <- t*se                                            # calculate moe
+moe 
+
+ci <- x_bar + (c(-1,1)*moe)                            # calculate confidence interval
+ci
+```
+
+Mathematically Approach:  
+
+$$\bar{x} = 92.4184$$  
+
+$$s = 14.26041$$  
+
+$$t_{\frac{\alpha}{2}} = 2.0638$$  
+
+$$MOE_t = t_{\frac{\alpha}{2}}\frac{s}{\sqrt{n}} = 2.0638(\frac{14.26041}{\sqrt{25}})=5.886408$$  
+
+$$CI_{95} = \bar{x} \pm MOE = 92.4184 \pm 5.886408 = (86.53, 98.30)$$  
+
+# Central Limit Theorem (CLT)  
+
+Basically, the distribution of the sample mean can be approximated as normally distributed when the number of observations ($n$) within samples is large...rule of thumb $n \geq 30$.
+
+Follow link provided below for demonstration of CLT for the distribution of sample mean.  
+
+https://gallery.shinyapps.io/CLT_mean/  
+
+### Example 3: CLT  
+
+Use the dataset "cars" and variable of interest 'mpgCity'.  Assume this represents the entire population. 
+
+Examine the histogram of the 'mpgCity' variable.  Does it appear to be distributed normally? Ewww!  
+
+```{r}
+hist(cars$mpgCity)
+```
+
+So...what do we do...  
+
+How can we make inferences about population parameters when the population distribution is not normal?  Well...CLT, CLT, CLT!  
+
+Let's prove this.  
+
+Take 100 random samples of size $n = 2$.  Create a histogram and examine the distribution.  
+
+```{r}
+dist2 <- rep(NA, 100)
+for (i in 1:100) {
+  set.seed(i)
+	samp <- sample(cars$mpgCity, 2)
+	dist2[i] <- mean(samp)
+}
+hist(dist2)
+```
+  
+
+Take 100 random samples of size $n = 5$.  Create a histogram and examine the distribution.  
+
+```{r}
+dist5 <- rep(NA, 100)
+for (i in 1:100) {
+  set.seed(i)
+	samp <- sample(cars$mpgCity, 5)
+	dist5[i] <- mean(samp)
+}
+hist(dist5)
+```
+
+Take 100 random samples of size $n = 15$.  Create a histogram and examine the distribution.  
+
+```{r}
+dist15 <- rep(NA, 100)
+for (i in 1:100) {
+  set.seed(i)
+	samp <- sample(cars$mpgCity, 15)
+	dist15[i] <- mean(samp)
+}
+hist(dist15)
+```
+
+# Hypothesis Testing  
+
+Basically the scientific method to some degree...  
+
+Ask a question of interest, develop a hypothesis, analyze or observe an experiment, conclude on hypothesis.  In statistics we use a similar structure for testing theoretical concepts with empirical findings.  
+
+"A hypothesis test is a statistical test that is frequently used to determine whether there is enough evidence in a sample of data to infer that a certain condition is true for the entire population" (Copyright 2015 Minitab Inc. All rights Reserved)  
+
+Great Resource for Hypothesis Testing in the following link:
+
+http://support.minitab.com/en-us/minitab/17/topic-library/basic-statistics-and-graphs/hypothesis-tests/basics/what-is-a-hypothesis-test/
+
+## Structure of Testing  
+
+*Null Hypothesis*: Represents a claim to be tested.  Usually is the case that assumes no relationship or difference exists between testing groups or parameters.  Usually comes from previously proven theory or experience.  (Always has form of equivalence in the statement!)
+
+$$H_0$$
+
+*Alternative Hypothesis*: Also referred to as the "research" hypothesis.  It is usually the contradiction to the null hypothesis and hoped to be proven acceptable through statistical testing.  
+
+$$H_A$$  
+
+## Hypothesis Testing Forms  
+
+   One-tail Upper  |     One-tail Lower |       Two-tail Not Equal 
+------------- | -------------    | ----------------  |  ----------------
+$H_0: \mu \leq \mu_0$   | $H_0: \mu \geq \mu_0$   | $H_0: \mu = \mu_0$   
+$H_A: \mu > \mu_0$      | $H_A: \mu < \mu_0$      |   $H_A: \mu \ne \mu_0$  
+
+### One-tail Greater Than  
+\centering
+![](right-tailed.png)  
+\raggedright  
+
+### One-tail Less Than  
+\centering
+![](left-tailed.png)  
+\raggedright  
+
+### Two-tailed Not Equal  
+\centering
+![](two-tailed.png)  
+\raggedright
+
+## Hypothesis Testing Steps  
+
+- State the "original claim" and determine if it is considered the Null or Alternative Hypothesis
+- Write the Null and Alternative Hypothesis
+- Using the Alternative Hypothesis identify the necessary type of test 
+- Draw the picture!!!! (including rejection zone(s))
+- Find the critical value (computed)
+- Make a decision to reject or fail to reject the null hypothesis
+- State conclusion  
+
+## Type I and Type II Errors  
+\centering
+![](error.png)    
+\raggedright      
+
+
+*Level of Significance* ($\alpha$): Probability of making a Type I error.  Your willingness to accept a xx% chance of being wrong when you reject the null hypothesis.  
+
+*Power of the Test* ($1-\beta$):  The probability of rejecting the null hypothesis when it is truly false.  
+
+## Critical Value  
+
+The quantile representing the level of significance ($\alpha$).  See above sample distribution graphs for Hypothesis Testing Forms.  
+
+### One-Tailed Critical Values (Greater than or Less than) - $\sigma$ known
+
+  Level of Significance ($\alpha$)  |     Hypothesis Test  |       Critical Value Lower    |  Critical Value Upper
+------------- | -------------    | ----------------  |  ----------------  |  --------------
+0.1     | z-test     |   -1.28  | 1.28
+0.05    | z-test     |   -1.64  | 1.64
+0.01    | z-test     |   -2.33  | 2.33  
+
+### Two-Tailed Critical Values (Equal to) - $\sigma$ known
+
+  Level of Significance ($\frac{\alpha}{2}$)  |     Hypothesis Test  |       Critical Value Lower     |  Critical Value Upper
+------------- | -------------    | ----------------  |  ----------------  |  --------------
+$\frac{0.1}{2} = 0.05$     | z-test     |   -1.64  | 1.64
+$\frac{0.05}{2} = 0.025$    | z-test     |   -1.96  | 1.96
+$\frac{0.01}{2} = 0.005$     | z-test     |   -2.58  | 2.58   
+
+### One-Tailed Critical Values (Greater than or Less than) - $\sigma$ unknown  
+
+qt(p, df, ncp, lower.tail = TRUE, log.p = FALSE)
+
+```{r}
+qt(0.05, 40, lower.tail = TRUE)      # t-critical value when alpha = 0.05 and df = 40 (lower tail test)
+qt(0.05, 40, lower.tail = FALSE)     # t-critical value when alpha = 0.05 and df = 40 (upper tail test)
+```
+
+### One-Tailed Critical Values (Greater than or Less than) - $\sigma$ unknown   
+
+qt(p, df, ncp, lower.tail = TRUE, log.p = FALSE)  
+
+```{r}
+qt(0.05/2, 40, lower.tail = TRUE)      # t-critical value when alpha = 0.05 and df = 40 (two-sided tail test)
+```
+
+## Test Statistics for Population Means 
+
+A standardized statistic derived based on sample data collected for the test.  Useful in providing evidence on whether to reject or fail to reject the test.  
+
+  $\sigma$ Known?  |     Hypothesis Test  |       Test Statistic
+------------- | -------------    | ----------------  |  ----------------
+Yes| z-test  | $z =  \frac{\bar{x}-\mu_0}{\frac{\sigma}{\sqrt{n}}}$
+No     | t-test     |   $t = \frac{\bar{x}-\mu_0}{\frac{s}{\sqrt{n}}}$        
+
+### p-Value  
+
+The probability associated with the derived test statistic.  
+
+## Methods for Conducting Hypothesis Tests  
+
+### Critical Value Comparison 
+
+*Rejection Rules for $\sigma$ known and unknown*  
+
+Test Statistic   |  Testing Type  |     Rejection $H_0$ if        
+---------------- | -------------  | -------------   
+z | Upper-Tail     | $z \geq z_{\alpha}$  
+z | Lower-Tail     | $z \leq -z_{\alpha}$              
+z | Two-Tailed     | $z \geq z_{\frac{\alpha}{2}}$ or $z \leq -z_{\frac{\alpha}{2}}$   
+t | Upper-Tail     | $t \geq t_{\alpha}$  
+t | Lower-Tail     | $t \leq -t_{\alpha}$              
+t | Two-Tailed     | $t \geq t_{\frac{\alpha}{2}}$ or $t \leq -t_{\frac{\alpha}{2}}$   
+
+### p-Value Comparison 
+
+*Rejection Rules for $\sigma$ known and unknown*  
+
+  Testing Type  |     Rejection $H_0$ if        
+-------------  | -------------   
+Upper-Tail     | $p-value \leq \alpha$  
+Lower-Tail     | $p-value \leq \alpha$              
+Two-Tailed     | $p-value \leq \alpha$  
+
+### Confidence Interval Approach  
+
+-  Take a simple random sample from the population 
+-  Calculate the sample statistic of interest (in our case $\bar{x}$)  
+-  Develop confidence interval with appropriate $z$ or $t$ based on population criteria and sample size
+-  Determine whether the hypothesized value is contained in confidence interval
+    -  If so, fail to reject $H_0$
+    -  If not, reject $H_0$  
+    
+### Computational Approach  
+
+*Z - Test*:  
+- See examples below
+
+*T - Test*:  
+- t.test(x, y = NULL, alternative = c("two.sided", "less", "greater"), mu = 0, paired = FALSE, var.equal = FALSE, conf.level = 0.95, ...)  
+
+## Examples  
+
+### Example 1
+
+The mean hourly wage for employees in automotive manufacturing plants is currently 24.57.  We take a sample of 30 employees from automotive manufacturing plants from around the world to see if the mean hourly wage rate differs from the reported mean of 24.57.  Assume the population standard deviation is known to be 2.40/hour.  The sample mean ($\bar{x}$) is 23.89 per hour.  Develop the appropriate hypothesis test and conclude on question at hand.  Evaluate the test using each of the 4 methods for hypothesis testing with probability of a Type I error being $\alpha$ = 0.05.  
+
+*Hypothesis*:  
+
+$$H_0: \mu = 24.57$$
+$$H_A: \mu \ne 24.57$$   
+
+*Critical Value Approach*  
+
+Derive Test Statistic ($z$)  
+
+$$z=\frac{\bar{x}-\mu_0}{\frac{\sigma}{\sqrt{n}}}$$  
+$$z=\frac{23.89-24.57}{\frac{2.4}{\sqrt{30}}} = -1.55$$  
+
+Derive Critical Value  
+
+```{r}
+qnorm(0.05/2, 0, 1)
+```
+
+Use table given above...  
+
+$$z_{\frac{\alpha}{2}} = (-1.96, 1.96)$$  
+
+Compare Test Statistic to Critical Value for Two-Sided Test  
+
+$$z (-1.55) \geq cv_{\frac{0.05}{2}} (-1.96)$$  
+
+![](exampe1_cv.png)  
+
+Therefore, fail to reject null hypothesis!  
+
+*p-Value Approach*  
+
+Derive the p-value associated with the test statistic    
+
+Is the test statistic in the lower or upper part of the distribution?  $z=-1.55$...therefore lower
+
+```{r}
+pnorm(-1.55,0,1)*2
+```
+
+Compare the derived p-value for the test statistic against the level of significance (0.05)  
+
+$$p-value = 0.1211 > 0.05$$  
+
+Therefore, fail to reject null hypothesis!  
+
+*Confidence Interval Approach*  
+
+$$\bar{x} = 23.89$$  
+
+$$\sigma_{pop} = 2.40$$  
+
+$$z_{\frac{\alpha}{2}} = 1.96$$  
+
+$$MOE_z = z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}} = 1.96(\frac{2.40}{\sqrt{30}})=0.8588$$  
+
+$$CI_{95} = \bar{x} \pm MOE = 23.89 \pm 0.8588 = (23.03, 24.75)$$  
+
+Does the 95% confidence interval contain the hypothesized $\mu_0 = 24.57$?  Yes!  
+
+Therefore, fail to reject null hypothesis!   
+
+*Computational Approach*  
+
+```{r}
+xbar <- 23.89                    # sample mean
+mu0 <- 24.57                     # hypothesized population mean 
+sd0 <- 2.40                      # known standard deviation of the population  
+n <- 30                          # sample size
+
+alpha <- 0.05                    # level of significance 
+z <- (xbar-mu0)/(sd0/sqrt(n))    # derive test statistic, z
+z
+cv <- c(-1.96, 1.96)             # critical values for two sided test with alpha = 0.05
+
+p <- pnorm(z,0,1)*2              # determine p-value associated with test statistic, z
+p
+
+ci <- xbar + cv*(sd0/sqrt(n))    # determine the 95% confidence interval
+ci
+
+```
+
+
+### Example 2  
+
+The time (minutes) it takes students to complete any given statistics exam is normally distributed with population mean 120 minutes.  A sample of 5 observations were taken from a class of undergraduate statistics students recording how long it took them to complete their final exam.  The data is given in the table below.  One believes that the true population mean of 120 is actually too high.  Using the sample data, test the hypothesis using all hypothesis testing methods.  You are O.K. with having a Type I error rate of 0.05.  
+
+  1  |     2  |       3     |  4   |   5
+------------- | -------------    | ----------------  |  ----------------  |  --------------  
+121    | 116     |   110  | 114  | 105  
+
+*Hypothesis*:  
+
+$$H_0: \mu \geq 120$$
+$$H_A: \mu \leq 120$$  
+
+*Sample Statistics* 
+
+$$\bar{x} = \frac{121+116+110+114+105}{5} = 113.2$$
+$$s = \sqrt{\frac{(121-113.2)^2+(116-113.2)^2+(110-113.2)^2+(114-113.2)^2+(105-113.2)^2}{5-1}}=6.06$$  
+
+```{r}
+samp1 <- c(121, 116, 110, 114, 105)
+mean(samp1)
+sd(samp1)
+```
+
+*Critical Value Approach*  
+
+Derive Test Statistic ($t$)  
+
+$$t=\frac{\bar{x}-\mu_0}{\frac{\sigma}{\sqrt{n}}}$$  
+$$t=\frac{113.2-120}{\frac{6.06}{\sqrt{5}}} = -2.509$$  
+
+Derive Critical Value  
+
+```{r}
+qt(0.05, 4)
+```
+
+Use table given above...  
+
+$$t_{(\alpha = 0.05, df=4)} = -2.13$$  
+
+Compare Test Statistic to Critical Value for Two-Sided Test  
+
+$$t (-2.509) \leq cv_{0.05} (-2.13)$$  
+
+![](example2_cv.png)  
+
+Therefore, reject null hypothesis!  
+
+*p-Value Approach*  
+
+Derive the p-value associated with the test statistic    
+
+Is the test statistic in the lower or upper part of the distribution?  $t=-2.509$...therefore lower
+
+```{r}
+pt(-2.509,4)
+```
+
+Compare the derived p-value for the test statistic against the level of significance (0.05)  
+
+$$p-value = 0.033 < 0.05$$  
+
+Therefore, reject null hypothesis!  
+
+*Confidence Interval Approach*  
+
+$$\bar{x} = 113.2$$  
+
+$$s = 6.06$$  
+
+$$t_{(\alpha = 0.05, df=4)} = -2.13$$  
+
+$$MOE_t = t_{(\alpha = 0.05, df=4)}\frac{s}{\sqrt{n}} = 2.13(\frac{6.06}{\sqrt{5}})=5.7725$$  
+
+$$CI_{95} = \bar{x} \pm MOE =113.2 \pm 5.77 = (107.43, 118.97)$$  
+
+Does the 95% confidence interval contain the hypothesized $\mu_0 = 120$?  No!  
+
+Therefore, reject null hypothesis!   
+
+*Computational Approach*  
+
+```{r}
+samp1 <- c(121, 116, 110, 114, 105)
+t.test(samp1, alternative = "less", mu = 120, conf.level = 0.95)
+```
+
+
+
+
+
+
+
+
+
+
