@@ -1,0 +1,175 @@
+---
+title: "Statistical Inference"
+author: "Curry W. Hilton"
+output: html_document
+---
+
+# Estimation of Parameters
+
+Recall, parameters are descriptors of the population, such as mean ($\mu$), variance ($\sigma^2$), standard deviation ($\sigma$), etc.  Such measures explain a set of information regarding a population.  For example, all the students enrolled at the University of Alabama would represent a population of $N =$ 36,155 in 2014.  We might be interested in understanding the mean age of all enrolled students to better understand the central tendency of the distribution.  Other such population parameters could be derived...when population sizes are relatively large, obtaining and measuring population parameters can be quite challenging.  So...We SAMPLE!
+
+## Point Estimates (Statistics)
+
+
+   Parameter   |     Statistic   |       Function
+------------- | -------------    | ----------------
+Mean ($\mu$)     | Sample Mean ($\bar{x}$)   | $\bar{x}=\frac{1}{n}\displaystyle\sum\limits_{i=1}^nx_i$
+Standard Deviation ($\sigma$)        | Sample Standard Deviation ($s$)     |   $s = \sqrt{\frac{\displaystyle\sum\limits_{i=1}^n(x_i-\bar{x})^2}{n-1}}$
+Proportion ($p$)         | Sample Proportion ($\bar{p}$)   |  $\bar{p} = \frac{x}{n}$
+
+## Sampling  
+
+Random sampling will be the only means of sampling utilized in this course.  Basically, when random sampling each observation in the population has an equal chance of being selected in the generated sample.  
+
+```{r, eval=FALSE}
+?sample
+sample(x, size, replace = FALSE, prob = NULL)
+```
+
+### Example 1
+
+Load the "possum" dataset from the openintro package into your Global Environment (We will assume this represents the population of possums!).
+
+```{r}
+library(openintro)
+data(possum)
+```
+
+Observe the population distribution of possums' tail lengths in a histogram.  What does the distribution resemble?
+
+```{r}
+hist(possum$tailL)
+```
+
+
+What are the population parameters for mean and standard deviation?
+
+```{r}
+mean(possum$tailL)
+sd(possum$tailL)
+```
+
+Let's take a sample of 5 observations from the population of possum tails!  Call the sample, "samp1".
+
+```{r}
+set.seed(1234)
+samp1 <- sample(possum$tailL, 5)
+samp1
+```
+
+Observe the sample distribution by means of a histogram of "samp1".
+
+```{r}
+hist(samp1)
+```
+
+What are the sample statistics for mean and standard deviation of "samp1"?
+
+```{r}
+mean(samp1)
+sd(samp1)
+```
+
+How close are the sample statistics and population parameters?  Are the sample statistics fair representations of the population parameters?  What are we doing?!?...statistical inference!  Whoop Whoop!  
+
+How could we improve our inference regarding the population?  Wait for it...increase your sample size!  
+
+### Example 2
+
+Use the same information from the above Example 1.  Now let's take a sample of 30 observations from the population and call it "samp2".
+
+```{r}
+set.seed(1234)
+samp2 <- sample(possum$tailL, 30)
+samp2
+```
+
+Examine the histogram of "samp2".  Does it look more like the distribution of the population in comparison to samp1?
+
+```{r}
+hist(samp2)
+```
+
+
+What are the sample statistics for mean and standard deviation of "samp2"?
+
+```{r}
+mean(samp2)
+sd(samp2)
+```
+
+Did the sample statistics improve or converge closer to the population parameters as the number of observations in the sample increase?
+
+## Sampling Distributions
+
+Represents the distribution of statistics from samples of fixed sizes from a population.  For example, if I were to take 25 samples of size 10 from a population, calculate the sample mean from each sample, and create a histogram, I would be creating a sampling distribution for the sample mean.
+
+### Example 3
+
+Use the "possum" dataset and let's examine the variable 'headL'.  Take 30 samples of size 15 from the population of possums.  You will **not** be responsible for generating the code below yourself.  
+
+```{r}
+s_dist <- rep(NA, 30)
+for (i in 1:30) {
+  set.seed(i)
+	samp3 <- sample(possum$headL, 15)
+	s_dist[i] <- mean(samp3)
+}
+```
+
+Create a histogram of the sampling distribution for the sample mean of possum head length.
+
+```{r}
+hist(s_dist)
+```
+
+
+What is the mean of the population of all possums' head lengths? What is the mean of all the sample means in the sampling distribution?
+
+```{r}
+mean(possum$headL)
+mean(s_dist)
+```
+
+Getting close!  This is what is considered proof of unbiasedness in estimates.  We will not cover unbiasedness or convergence in this course...  
+
+### Standard Error of Estimates (SE)  
+
+The standard deviation associated with the estimate.  Basically, a means to describe the error of the sample statistic.
+
+Standard error of a sample mean...  
+
+$$SE = \frac{\sigma}{\sqrt{n}}$$
+
+Where, $n$ is the number of observations in the sample and $\sigma$ is the standard deviation of the population.  When the population standard deviation is not known, we *usually* can use the sample standard deviation ($s$) if the number of observations in the sample is $n \geq 30$.
+
+### Example 4
+
+Calculate the population mean and standard deviation for the 'skullW' variable from the "possum" dataset.
+
+```{r}
+mean(possum$skullW)
+sd_p <- sd(possum$skullW)
+sd_p
+```
+
+Take a sample of 30 possums from the population using 'skullW' as the variable of interest and name it 'samp4'.
+
+```{r}
+set.seed(1986)
+samp4 <- sample(possum$skullW, 30)
+samp4
+```
+
+Derive the mean, standard deivation, and standard error (use the population standard deviation and the sample standard deviation) associated with the sample mean statistic for 'samp4'.
+
+```{r}
+mean(samp4)
+sd_s <- sd(samp4)
+sd_s
+se_p <- sd_p/sqrt(30)
+se_p
+se_s <- sd_s/sqrt(30)
+se_s
+```
+
