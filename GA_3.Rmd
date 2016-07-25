@@ -1,0 +1,29 @@
+---
+title: 'Group Assignment #3'
+author: "Curry W. Hilton"
+output: html_document
+---
+
+### Q1
+
+Let $A$ = {a, b, c}, $B$ = {d, e, f, g, h}, $C$ = {i, j, k, l}, $D$ = {m, n, o, p}. Assume the $\delta =$ The entire alphabet.
+
+- What is $(A^c \cap C)$?
+
+### Q2
+
+When a production machine is properly operating, only 10% of the product produced are considered defects.  In order to provide quality control of all output, randomly selected lots of 5 units are selected and evaluated.  The result of such inspection is either pass or fail (defect).  
+
+- What is the probability that at least 3 defects are found during an inspection?
+
+### Q3
+
+During the holiday season, some shoppers prefer shopping online and some prefer shopping at a physical store.  A recent survey of size 100 showed that 60% of shoppers prefered shopping online.  A random sample of 15 shoppers from the 100 survey participants was selected.
+
+- What is the probability that *exactly* 4 shoppers in the sample prefered shopping at a physical store?
+
+### Q4
+
+According to the National Oceanic and Atmospheric Admistration (NOAA), the state of Alabama averages 25 tornadoes every April (30 days).
+
+- What is the probability of less than 3 tornadoes per day?

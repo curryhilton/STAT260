@@ -1,0 +1,282 @@
+---
+title: "Midterm Exam"
+author: "Curry W. Hilton"
+output: html_document
+---
+
+Instructions: Please select the correct answer from the choices given. Enter the “Letter” (A, B, C, or D) for multiple choice type questions and for True or False type questions, enter the “Letter” either (A or B) depending on the correct answer. This exam is due at 11:59 PM on July 24, 2016. All questions must be answered and submitted within the Midterm Exam link found on BlackBoard. No late submissions will be accepted regardless the circumstances. You are to work *independently* on this exam. You are allowed to use any resources available, notes from class, your book, the previous group assignments/problem set/labs, internet, etc. Any questions regarding wording of questions or for further clarity must be directed through me (I promise to provide a response within 1 hour from the time of the email or text). Just to reiterate, you are bound under the student conduct agreement for testing procedures and will be held accountable for any academic misconduct. Do work!
+
+### 1.
+
+The following data points have been collected in a sampling procedure: (6, 4, 3, 8, 7) Calculate the sample varaince and sample standard deviation, respectively. For simplicity sake you can store the sample observations as the R object x with the code provided.
+
+```{r}
+x <- c(6, 4, 3, 8, 7)
+```
+
+A) 4.3, 2.073
+B) 8, 2.077
+C) 5.4, 3.45
+D) 4.78, 2
+
+-----
+
+Use the “ballBearing” dataset in the openintro package to answer the following three questions (2, 3, 4). The variable of interest in the “ballBearing” dataset is ‘lifeSpan’.
+
+### 2. 
+
+The sample IQR of the ‘lifeSpan’ variable is:
+
+A) 1.89223
+B) 1.84922
+C) 1.65853
+D) 1.82921
+
+### 3. 
+
+The 40% percentile of the ‘lifeSpan’ variable is (Remember the 'quantile' function in R):
+
+A) 6.33561
+B) 6.35966
+C) 6.72991
+D) 6.82921
+
+### 4. 
+
+The distribution of the ‘lifeSpan’ variable is considered:
+
+A) Skewed Right 
+B) Skewed Left 
+C) Symmetric 
+D) Multimodal
+
+------
+
+Use the “mlbBat10” dataset in the openintro package to answer the following three questions (5, 6, 7, 8). The variables of interest in the “mlbBat10” dataset is ‘SLG’, ‘AVG’, 'AB', and ‘RBI’.
+
+### 5.
+
+Derive the covariance between variables ‘SLG’ and ‘AVG’. The covariance between both variables indicates what type of relationship?
+
+A) Positive 
+B) Inverse/Negative 
+C) No relationship
+
+### 6.
+
+What is the correlation measurement between variables ‘SLG’ and ‘AVG’?
+
+A) -0.8922997
+B) 0.9514384 
+C) 0.8922997
+D) -0.8869183
+
+### 7.
+
+Based on your results found in question 5 and 6, the linear strength between variables ‘SLG’ and ‘AVG’ is considered:
+
+A) Strong positive linear relationship 
+B) Strong inverse/negative linear relationship 
+C) Strong positive non-linear relationship 
+D) Stong inverse/negative non-linear relationship
+
+### 8. 
+
+Use the following scatterplot to determine the type of relationship present between variables ‘AB’ and ‘RBI’.
+
+```{r}
+library(openintro)
+plot(mlbBat10$AB, mlbBat10$RBI)
+```
+
+A) Positive 
+B) Inverse/Negative 
+C) No relationship
+
+-------
+
+Use the following problem description to answer questions 9 & 10. John Wayne is known to be a famous Cowboy Wester star in the movies playing in such roles as “Rio Bravo” and “True Grit”. He is also a pretty good shot with a six-shooter! Suppose John Wayne enjoys target practice at old beer cans on a fence rail. It has been estimated that he is succesful in hitting the can 74% of the time. John Wayne’s trusty pair of Colt six-shooters holds 6 rounds each (total bullets = 12).  Assume his success is *binomially* distributed.
+
+### 9.
+
+What is the probability that John Wayne hits the can 6 times during one round of shooting and emptying both this six shooters?
+
+A) 0.9196 
+B) 0.4487 
+C) 0.0442 
+D) 0.0469
+
+### 10.
+
+What is the mean associated with John Waynes successful can hits during target practice?
+
+A) 8.08 
+B) 10.755 
+C) 1.6128 
+D) 8.88
+
+-------
+
+Use the follwoing problem description to answer questions 11, 12, & 13. The weights of male college students are considered to be *normally* distributed with mean weight of 185 lbs and standard deviation of 10 lbs
+
+### 11.
+
+What is the z-value (standardized value) associated with a male's weight of 160 lbs?
+
+A) 2.5 
+B) 0 
+C) -1.5 
+D) -2.5
+
+### 12.
+
+What is the probability of a male’s weight being between 1.25 standard deviations of the mean?
+
+A) 0.789 
+B) 0.889 
+C) 0.134 
+D) 0.211
+
+### 13. 
+
+What is the quantile or male’s weight assoicated with the 58% percentile?
+
+A) 165.847 
+B) 187.018 
+C) 184.598 
+D) 168.754
+
+-----
+
+### 14.
+
+Use the following histogram to answer the following question.
+
+```{r}
+hist(MLB$salary)
+```
+
+The distribution of the variable ‘salary’ in the “MLB” dataset is:
+
+A) Skewed right 
+B) Skewed left 
+C) Symmetric
+
+### 15. 
+
+A variable representing the amount of time necessary to take this test is best described as:
+
+A) Continuous & Numeric 
+B) Continuous & Discrete 
+C) Categorical & Discrete 
+D) Discrete & Numeric
+
+### 16.
+
+For the dataset, 'ageAtMar' and variable, 'age', what is the value for the lower fence of the box-and-whiskers plot?
+
+A) 16
+B) 11
+C) 13
+D) 12
+
+----
+
+Use the following problem description to answer questions 17 & 18.
+
+Dell computers are assembled in manufacturing facilities in either Houston, TX or Dallas, TX.  Suppose 150 computers are produced on an hourly basis in aggregate.  Since the Houston facility is smaller than the Dallas facility it accounts for 30% of total production.  Suppose a random sample of 12 finished Dell computers is taken.  *Hypergeometric*
+
+### 17.
+
+What is the probability that 8 of the computers in the sample were produced in Dallas?
+
+A) 0.241
+B) 0.244
+C) 0.218
+D) 0.275
+
+### 18. 
+
+What is the probability that less than or equal to 4 computer in the sample were produced in Houston?
+
+A) 0.741
+B) 0.762
+C) 0.730
+D) 0.299
+
+-----
+
+Use the following problem description to answer questions 19 & 20.
+
+Consider a *Poisson* distribution with mean $(\lambda)$ of 2 occurences in any given 10 minutes.
+
+### 19.
+
+What is the variance of the distribution during a 20 minute interval?
+
+A) 2
+B) 4
+C) 6
+D) 1
+
+### 20.
+
+What is the probability of at least one occurence happening in 30 minutes?
+
+A) 0.002478
+B) 0.025956
+C) 0.997521
+D) 0.956892
+
+-----
+
+Use the following problem description to answer questions 21 & 22.
+
+The estimated travel time between Loosa and Rounders is distributed *uniformly* between 20 minutes and 32 minutes.  
+
+### 21.
+
+What is the probability of any given patron traveling between establishments taking less than 25 minutes?
+
+A) 0.417
+B) 0.448
+C) 0.611
+D) 0.546
+
+### 22.
+
+What is the probability of it taking more than 1 standard deviation below the mean?
+
+A) 0.541722
+B) 0.548982
+C) 0.632594
+D) 0.788675
+
+----
+
+### 23.
+
+The average loading time of a transfer truck at any given FedEx terminal is 31 minutes.  Such distribution is considered *exponential*.  Depending on the content of the truck, times may vary.  What is the time associated with the fastest 40% of trucks being loaded?
+
+A) 16.335
+B) 28.405
+C) 15.835
+D) 32.577
+
+### 24.
+
+The variable 'Danger' in the "mammals" dataset in the OpenIntro package is best described as:
+
+A) Continuous & Numeric
+B) Continuous & Discrete
+C) Categorical & Nominal
+D) Categorical & Ordinal
+
+### 25. 
+
+Using the 'births' dataset determine the number of births that are considered premature and to mothers who are smokers. The variable 'premature' is categorical, where the designation, "full term" represents babies who went the entire term before delivery and "premie" represents babies who were delivered prematurely.  The variable "smoke" is categorical, where the designations are pretty self explanatory (smoker, nonsmoker).  Build a contigency table with both variables.  Use the function, 'table' in R. 
+
+A) 87
+B) 13
+C) 43
+D) 8

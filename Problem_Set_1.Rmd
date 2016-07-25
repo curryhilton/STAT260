@@ -1,0 +1,57 @@
+---
+title: 'Problem Set #1'
+author: 'Name(s): ________________________'
+date: 'Due Date: July 19, 2016'
+output: html_document
+---
+
+## 1.
+
+Explain the difference between a parameter and statistic. Provide a "real life" example.
+
+
+## 2. 
+
+Compare the variance and IQR for two datasets (Both datasets are in the "openintro" package).  Remember to do a 'library' statement - library(openintro) 
+
+a) Dataset 1: "cars"
+    - Variable: 'price'
+b) Dataset 2: "ageAtMar"
+    - Variable: 'age'
+    
+Describe your findings in relationship to the "spread" of data.  
+
+
+## 3.
+
+Use the "cars" dataset (openintro).  
+
+a) Create a histogram and boxplot for the 'mpgCity' variable (attach)
+b)  Determine the skewness of the 'mpgCity' distribution (actual skewness value)
+    - You will need to do a library statement - library(moments)
+
+## 4.
+
+On the University of Alabama campus it is estimated that 64.7% of underage (18-20 year olds) students consume alcoholic beverages on any given Friday night.  Suppose a random sample of 10 underage students on a Monday are asked whether or not they consumed an alocoholic beverage on the previous Friday night. 
+
+a) Calculate the probability that exactly 4 of the 10 randomly selected underage students consumed an alcoholic beverage.
+
+b) Calculate the probability that at least 1 of the 10 randomly selected underage students consumed an alcoholic beverage.
+
+## 5.
+
+In a certain statistics course there are 35 total students.  Of which, 18 are female and 17 are male.  A random sample of 12 students are selected.  
+
+a) What is the probability that *exactly* 7 of the students are females?
+
+b) What is the expected value of females in this experiment?
+
+## 6.
+
+In June 2016 so far, 114 automobile accident have occurred in Tuscaloosa, AL during morning rush hour (8:00 AM - 9:00 AM).  This corresponds to a mean of 8.769 accident per hour.  
+
+a) What is the probability of four or more accidents in any given 15 minute period during rush hour?
+
+
+
+

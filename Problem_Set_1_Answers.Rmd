@@ -1,0 +1,117 @@
+---
+title: 'Problem Set #1 - Answers'
+author: 'Name(s): ________________________'
+date: 'Due Date: July 19, 2016'
+output: html_document
+---
+
+## 1.
+
+Explain the difference between a parameter and statistic. Provide a "real life" example.
+
+*A paramter describes some form of measure of a population.  A statistic describes some form of measure of a random subset of observations from a population.  The average age of U.S. citizens gathered during the decennial U.S. census is considered a population parameter.  The average age of of a random sample of 10,000 U.S. citizens is considered a sample statistic.*
+
+## 2. 
+
+Compare the variance and IQR for two datasets (Both datasets are in the "openintro" package).  Remember to do a 'library' statement - library(openintro) 
+
+a) Dataset 1: "cars"
+    - Variable: 'price'
+b) Dataset 2: "ageAtMar"
+    - Variable: 'age'
+    
+```{r}
+library(openintro)
+var_car_price <- var(cars$price)
+iqr_car_price <- IQR(cars$price)
+var_age <- var(ageAtMar$age)
+iqr_age <- IQR(ageAtMar$age)
+
+var_car_price
+iqr_car_price
+var_age
+iqr_age
+```
+
+Describe your findings in relationship to the "spread" of data.  
+
+*The variance and IQR are measures of spread. You will observe that in a comparative sense, that when the variance of one distribution is larger than the variance of another distribution, the IQR will also follow in the same relative manner. And it does in this example!*
+
+## 3.
+
+Use the "cars" dataset (openintro).  
+
+a) Create a histogram and boxplot for the 'mpgCity' variable (attach)
+
+```{r}
+hist(cars$mpgCity)
+boxplot(cars$mpgCity)
+```
+
+b)  Determine the skewness of the 'mpgCity' distribution (actual skewness value)
+    - You will need to do a library statement - library(moments)
+
+```{r}
+library(moments)
+skewness(cars$mpgCity)
+```
+
+*Right (positively) skewed distribution*
+
+## 4.
+
+On the University of Alabama campus it is estimated that 64.7% of underage (18-20 year olds) students consume alcoholic beverages on any given Friday night.  Suppose a random sample of 10 underage students on a Monday are asked whether or not they consumed an alocoholic beverage on the previous Friday night. 
+
+a) Calculate the probability that exactly 4 of the 10 randomly selected underage students consumed an alcoholic beverage.
+
+```{r}
+dbinom(4, 10, prob = 0.647)
+```
+
+b) Calculate the probability that at least 1 of the 10 randomly selected underage students consumed an alcoholic beverage.
+
+```{r}
+1-dbinom(0, 10, prob = 0.647)
+# or
+pbinom(0, 10, prob = 0.647, lower.tail = FALSE)
+```
+
+*Errbody be drankin...*
+
+## 5.
+
+In a certain statistics course there are 35 total students.  Of which, 18 are female and 17 are male.  A random sample of 12 students are selected.  
+
+a) What is the probability that *exactly* 7 of the students are females?
+
+```{r}
+dhyper(7, 18, 17, 12)
+```
+
+
+b) What is the expected value of females in this experiment?
+
+```{r}
+n <- 12
+m <- 18
+N <- 35
+ex <- (n*m)/N
+ex
+```
+
+## 6.
+
+In June 2016 so far, 114 automobile accident have occurred in Tuscaloosa, AL during the times (8:00 AM - 9:00 PM).  This corresponds to a mean of 8.769 accident per hour.  
+
+a) What is the probability of four or more accidents in any given 15 minute period during rush hour?
+
+```{r}
+mean_hr <- 8.769
+mean_min <- mean_hr/60
+ppois(3, mean_min*15, lower.tail = FALSE)
+```
+
+
+
+
+
