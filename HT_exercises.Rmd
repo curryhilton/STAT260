@@ -1,0 +1,27 @@
+---
+title: "Hypothesis Testing - Exercises"
+author: "Curry W. Hilton"
+output: html_document
+---
+
+# Example 1:  
+
+Individuals filing federal income tax returns prior to March 31 received an average refund of $1,056.  Consider the population of "last-minute" filers who mail their tax return during the last five days of the income tax period (April 10-15).  A researcher suggests that "last-minute" filers receive lower tax refunds than early filers.  A sample of 400 late filers was collected and their average refund was $910.  Based on previous studies, the population standard deviation for late filers is $1,600.  Develop the appropriate hypothesis test with a Type I error of 0.1.  Determine the outcome of the study.
+
+
+
+# Example 2:  
+
+Annual expenditures for prescription drugs was $838 per person in the southeast U.S.  A sample of 60 individuals in the southeast region of the U.S. showed a per person annual expenditure for prescriptions drugs of $745.  The population standard deviation is $300.  One researcher believes the annual expenditures for prescription drugs is quite different from the stated, $838.  Develop the appropriate hypothesis test with a Type I error of 0.05.  Determine the outcome of the study.  
+
+
+
+# Example 3: 
+
+At the University of Alabama, the historical mean of scholarship examination scores for freshman applicants is 900.  Each year, the assistant dean uses a sample of 100 incoming students exam scores to determine is the scores are different from the historical mean.  This year, the sample mean is 935 and sample standard deviation is 100.  Use $\alpha = 0.01$ in your analysis.  Develop the appropriate hypothesis test and rule on the outcome of the study.  
+
+
+
+# Example 4:  
+
+Use the "bdims" dataset in the openintro package.  The variable of interest is 'che.de', chest measurement in inches.  Take a sample of 100 observations from the "bdims" dataset (use the set.seed function with seed number 145).  Determine the sample mean and sample standard deviation.  The NIH claims that the average chest measurement of all human beings is 18 inches.  Researchers believe that the NIH's claim is an underestimate of the true population mean.  Develop the appropriate hypothesis test and rule on the outcome of the study.  The acceptable Type I error is 0.1.  
