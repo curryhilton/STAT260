@@ -1,0 +1,35 @@
+---
+title: "Group Assignment #4"
+author: "Curry W. Hilton"
+output: html_document
+---
+
+### Q1
+
+A sample of 20 observations have been collected on number of beers consumed by students on home Bama baseball games. The sample mean and sample standard deviation are, $\bar{x} = 5$ and $s = 2$, respectively. The population standard deviation is *unknown* in this case. What is the 95% conﬁdence interval for the true population mean?
+
+### Q2
+
+The overall population mean of the number of days students lift weights each week is 2.78 days with a *known* standard deviation of 2.56 days. Compute a 99% confidence interval for the true population mean?  
+
+### Q3
+
+The 'MLB' dataset in the openintro package refers to the salaries ("salary") of each major league baseball player in 2010 (assume population).  Follow the directions below:
+
+a) Calculate the population parameters, $\mu$ and $\sigma$
+
+b) Take a random sample of 100 players and assign it the name of "samp" using the following code:
+
+```{r}
+library(openintro)
+set.seed(1986)
+samp <- sample(MLB$salary, 100)
+```
+
+c) Calculate the sample statistics, $\bar{x}$ and $s$ from the sample taken
+
+d) Contrust the 95% confidence interval assuming the population standard deviation is *known*; Use $\sigma$
+
+e) Construct the 95% confidence interval assuming the population standard deviation is *unknown*; Use $s$ 
+
+f) Compare the two confidence intervals in terms of range and the critical values, $z$ and $t$.  Do both intervals "capture" the true populatoin parameter, $\mu$?
