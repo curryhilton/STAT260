@@ -1,7 +1,7 @@
 ---
 title: 'Problem Set #2'
 author: 'Name(s): ________________________'
-date: 'Due Date: July 29, 2016'
+date: 'Due Date: August 1, 2016'
 output: html_document
 ---
 
@@ -44,7 +44,7 @@ Explain the importance of a Central Limit Theorem (CLT) in basic terms.  Expand 
 
 ## 4.  
 
-The Timken Company manufacturers ball bearings for industrial products.  Use the "ballBearing" dataset and the variable of interest, 'lifeSpan' in the openintro package (remember...in order to access such dataset you will need to use the R function, library(openintro)).  The chief industrial engineer claims that the average lifespan of a ball bearing produced on any given day is 7 years (Assume this claim represent the population mean and it is *known*!). A quality control specialist regularly checks this claim to ensure proper specification limits are maintained and proper information is provided to customers. On one production run (the "ballBearing" dataset), 75 ball bearings were tested until failure and the lifespace recorded.  The production process wants to ensure that the average ball bearing lasts at least 7 years. 
+The Timken Company manufacturers ball bearings for industrial products.  Use the "ballBearing" dataset and the variable of interest, 'lifeSpan' in the openintro package (remember...in order to access such dataset you will need to use the R function, library(openintro)).  The chief industrial engineer claims that the average lifespan of a ball bearing produced on any given day is 7 years with *known* standard deviation, 1.2 years. A quality control specialist regularly checks this claim to ensure proper specification limits are maintained and proper information is provided to customers. On one production run (the "ballBearing" dataset), 75 ball bearings were tested until failure and the lifespace recorded.  The production process wants to ensure that the average ball bearing lasts at least 7 years. 
 
 a)  Determine the appropriate hypothesis test (Use the level of significane, $\alpha = 0.05$)  
 
