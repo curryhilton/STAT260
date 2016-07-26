@@ -1,5 +1,5 @@
 ---
-title: "Group Assignment #4"
+title: "Group Assignment #4 Answer Key"
 author: "Curry W. Hilton"
 output: html_document
 ---
@@ -8,9 +8,31 @@ output: html_document
 
 A sample of 20 observations have been collected on number of beers consumed by students on home Bama baseball games. The sample mean and sample standard deviation are, $\bar{x} = 5$ and $s = 2$, respectively. The population standard deviation is *unknown* in this case. What is the 95% conﬁdence interval for the true population mean?
 
+```{r}
+n <- 20
+xbar <- 5
+s <- 2
+se <- s/sqrt(n)
+t <- qt(0.05/2, 19, lower.tail = F)
+moe <- t*se
+ci <- xbar + c(-1, 1)*moe
+ci
+```
+
 ### Q2
 
 The overall population mean of the number of days students lift weights each week is 2.78 days with a *known* standard deviation of 2.56 days. Compute a 99% confidence interval for the true population mean when $n=30$?  
+
+```{r}
+n <- 30
+xbar <- 2.78
+sigma <- 2.56
+se <- sigma/sqrt(n)
+z <- qnorm(0.01/2, lower.tail = F)
+moe <- z*se
+ci <- xbar + c(-1, 1)*moe
+ci
+```
 
 ### Q3
 
@@ -18,18 +40,53 @@ The 'MLB' dataset in the openintro package refers to the salaries ("salary") of 
 
 a) Calculate the population parameters, $\mu$ and $\sigma$
 
+```{r}
+library(openintro)
+mu <- mean(MLB$salary)
+sigma <- sd(MLB$salary)
+mu
+sigma
+```
+
 b) Take a random sample of 100 players and assign it the name of "samp" using the following code:
 
 ```{r}
-library(openintro)
 set.seed(1986)
 samp <- sample(MLB$salary, 100)
 ```
 
 c) Calculate the sample statistics, $\bar{x}$ and $s$ from the sample taken
 
+```{r}
+xbar <- mean(samp)
+s <- sd(samp)
+xbar
+s
+n <- length(samp)
+n
+```
+
 d) Contrust the 95% confidence interval assuming the population standard deviation is *known*; Use $\sigma$
+
+```{r}
+z <- qnorm(0.05/2, lower.tail = F)
+se <- sigma/sqrt(n)
+moe <- z*se
+ci <- xbar + c(-1, 1)*moe
+ci
+```
+
 
 e) Construct the 95% confidence interval assuming the population standard deviation is *unknown*; Use $s$ 
 
-f) Compare the two confidence intervals in terms of range and the critical values, $z$ and $t$.  Do both intervals "capture" the true populatoin parameter, $\mu$?
+```{r}
+t <- qt(0.05/2, n-1, lower.tail = F)
+se <- s/sqrt(n)
+moe <- t*se
+ci <- xbar + c(-1, 1)*moe
+ci
+```
+
+f) Compare the two confidence intervals in terms of range and the critical values, $z$ and $t$.  Do both intervals "capture" the true population parameter, $\mu$?
+
+*The 95% CI using the $z$ critical does not capture the true population parameter, $\mu$.  The 95% CI using the $t$ critical value does capture the true population paramter, $\mu$.  Although, both intervals are relatively close, the CI under the condition of an unknown standard deviation is larger than the CI under the condition of a known standard deviation.  The heavy right skewness plays a factor in this situation.*
