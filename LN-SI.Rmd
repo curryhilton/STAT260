@@ -662,7 +662,7 @@ The time (minutes) it takes students to complete any given statistics exam is no
 *Hypothesis*:  
 
 $$H_0: \mu \geq 120$$
-$$H_A: \mu \leq 120$$  
+$$H_A: \mu < 120$$  
 
 *Sample Statistics* 
 

@@ -1,8 +1,7 @@
 ---
-title: "Statistical Data Analysis – ST 260 - 102"
+title: "Statistical Data Analysis – ST 260 - 323"
 author: "Curry W. Hilton"
-date: "July 5, 2016"
-output: html_document
+output: pdf_document
 ---
 
 #### Course Description 
@@ -22,9 +21,9 @@ My office is located in the Bidgood Hall 319. I can be reached via email: cwhilt
 #### Grading Distribution
 
 - Group Assignments: 10%
-- Labs: 20%
-- Problem Sets: 25%
-- Midterm Exam: 20%
+- Labs: 10%
+- Problem Sets: 30%
+- Midterm Exam: 25%
 - Final Exam: 25%  
 *Potentially Take-Home Exams*
 
