@@ -1,7 +1,7 @@
 ---
 title: "Lecture Notes - Intro to R"
 author: "Curry W. Hilton"
-output: html_document
+output: pdf_document
 keep_tex: yes
 ---
 
@@ -27,7 +27,6 @@ keep_tex: yes
 - Description of all Global Options: http://support.rstudio.com/hc/en-us/articles/200549016-Customizing-RStudio
 - Under General
     - Uncheck "Restore .RData into workspace at startup"
-    - Save workspace to .RData on exit to **NEVER**
 
 ## R Project
 
@@ -177,3 +176,26 @@ View(MLB)                          # view the MLB dataset
 help("openintro")
 ```
 
+## R Markdown
+
+![](rmarkdown.png)
+
+File -> New File -> R Markdown or Click the "highlighted" plus symbol below the ribbon
+
+### Inserting Chunks!
+
+To insert a Chunk go to "Chunks" and "Insert Chunk"  
+
+![](chunk.PNG)
+
+Within an R Markdown file you can add "Chunks" that contain code that are executed when "knitted"
+
+For example:
+
+```{r}
+17*7*49         # Will execute the product of such numbers when knitted
+```
+
+
+
+We will use R Markdown for submitting all assignments.  This ensures aesthetically pleasing, well-organized, and most importantly reproducible output.  We will do multiple examples in class before turning you loose on your own!  Also, please refer to the R Markdown reference sheet in the "Course Supplements" folder on the course homepage.

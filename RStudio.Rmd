@@ -1,8 +1,7 @@
 ---
 title: "RStudio Download Instructions"
 author: "Curry W. Hilton"
-date: "July 5, 2016"
-output: html_document
+output: pdf_document
 ---
 
 - Follow link below for RStudio Download
