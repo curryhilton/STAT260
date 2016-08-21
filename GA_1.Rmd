@@ -1,32 +1,62 @@
 ---
 title: 'Group Assignment #1'
-author: "Curry W. Hilton"
-date: "July 11, 2016"
-output: html_document
+author: "Name: __________________"
+output: pdf_document
 ---
 
 ### Q1
 
 - Load the internal R dataset "faithful"
-    - First load the package: library(datasets)
+    - library(datasets)
 - View the dataset in the source window
+    - view(faithful)
 - Print only the 'waiting' variable and all associated rows to the console: *Recall*: In order to subset a dataset you can use the $ sign...for example: y$x
 - *Answer*: How many observations does the 'waiting' variable contain (Hint: number of rows)? 
+    - length(...)
+
+```{r}
+# ...
+```
+
 
 ### Q2
 
 - Load the internal R dataset "ipod"
-    - First load the package: library(openintro)
+    - library(openintro)
 - View the dataset in the source window
-- *Answer*: What type of variable is 'songLength'? (Hint: str(x))
+    - view(ipod)
+- *Answer*: What type of variable is 'songLength'?
+    - str(...)
+
+```{r}
+# ...
+```
+
 
 ### Q3
 
-- Run the following code to assign two data vectors (strings)
+- Run the following code to assign two data vectors, beers and pizza
 ```{r}
 beers <- c(4, 2, 3, 5, 9)
 pizza <- c(2, 3, 2, 1, 8)
 ```
 - Create a new vector 'bp' and assign it the values of multiplying the beers and pizza vectors and then dividing the result by 2
-- *Answer*: What result of the mathematical operation above is the lowest? (Hint: Remember order of operations)
+- *Answer*: What result of the mathematical operation above is the lowest? (The actual number calculated)
+
+```{r}
+# ...
+```
+
+### Q4 
+
+- Run the following code to assign the data vector, z
+```{r}
+z <- c(4, 5, 9, 8, 2, 9)
+```
+
+- Extract the second through the fourth elements of the vector and assign it the name 'y'
+
+```{r}
+# ...
+```
 
