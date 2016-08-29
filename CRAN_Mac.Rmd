@@ -1,8 +1,7 @@
 ---
 title: "R Download Instructions for Mac OS X"
 author: "Curry W. Hilton"
-date: "July 5, 2016"
-output: html_document
+output: pdf_document
 ---
 
 - Follow link below to CRAN  
