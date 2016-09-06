@@ -1,7 +1,7 @@
 ---
 title: "Lecture Notes - Probability & Distributions of Random Variables"
 author: "Curry W. Hilton"
-output: html_document
+output: pdf_document
 ---
 
 # Basic Probability
@@ -167,7 +167,8 @@ $X$ = the number of successes among the $n$ trials
 
 ### Distribution
 
-$$h(x; n, r, N) = \frac{{m \choose x}{N-m \choose n-x}}{N \choose n}$$
+$$h(x; n, r, N) = \frac{{m \choose x}{N-m \choose n-x}}{{N \choose n}}$$
+
 
 Where, $x$ = number of successes from 0 to $\infty$ in discrete movements; $n$ = number of trials; $m$ = the number of elements in the population considered a success; $N$ = number of elements in the population
 
@@ -210,62 +211,6 @@ dhyper(2, 4, 48, 3)
 phyper(0, 4, 48, 3, lower.tail = FALSE)
 ```
 
-
-### Geometric Probability Distribution
-
-#### Conditions
-
-1. Each trial is independent 
-2. Probability of $P(S)$ is constant among trials
-
-### Geometric Random Variable X
-
-$X$ = the number of trials on which the first success occurs
-
-### Distribution
-
-$$g(x; p) = (1-p)^{x-1}p$$
-
-Where, $x$ = number of trials on which the first success occurs; $p$ = the probability of success on each trial
-
-
-**Mean**: $E[X] = \frac{1}{p}$
-
-**Variance**: $Var[X] = \frac{(1-p)}{p^2}$
-
-### R - Geometric
-
-```{r, eval=FALSE}
-dgeom(x, prob, log = FALSE)                       # probability according to random value, x
-pgeom(q, prob, lower.tail = TRUE, log.p = FALSE)  # probability according to quantile (cumulative)
-qgeom(p, prob, lower.tail = TRUE, log.p = FALSE)  # quantile according to probability
-rgeom(n, prob)                                    # random selection
-
-# x = number of failures until first success, x
-# q = quantile (x) 
-# p = probability
-# n = number of observations
-# k = number of trials
-# prob = probability of event occurring
-```
-
-### Example 
-
-Tanner is known for his mad beer pong skills (https://en.wikipedia.org/wiki/Beer_pong). Over multiple years he has reﬁned the art and only misses the cup 10% of the time when “shooting”. Assume each shot is independent of the next and the previous. 
-
-1. What is the probability that his 3rd shot is a miss?
-
-```{r}
-dgeom(2, 0.1)
-```
-
-2. On average how many times will Tanner "make" the shot in a row before he misses?
-
-```{r}
-p <- 0.1
-mean <- 1/p
-mean
-```
 
 ### Poisson Probability Distribution
 
@@ -323,6 +268,7 @@ dpois(0, lambda = ((50/60)))
 
 1. Negative Binomial
 2. Uniform
+3. Geometric
 
 ## Continuous Probability Distributions
 
