@@ -1,0 +1,71 @@
+---
+title: "Discrete Probability Distributions"
+author: "Guidelines for R"
+output: pdf_document
+---
+
+# General Cases
+
+## Less than or equal to
+
+The probability that $X$ is **less than or equal** to $a$: $Pr(X \leq a)$: 
+
+$$function(a, \ ...)$$
+
+### Example
+
+- $Pr(X \leq 5)$, assume $X \sim Binomial(n = 10, \ p = 0.6)$  
+
+```{r}
+pbinom(5, size = 10, prob = 0.6)
+```
+
+![](bin1.png)
+
+## Less than
+
+The probability that $X$ is **less than** $a$: $Pr(X < a)$: 
+
+$$function(a-1, \ ...)$$
+
+### Example
+
+- $Pr(X < 5)$, assume $X \sim Binomial(n = 10, \ p = 0.6)$  
+
+```{r}
+pbinom(4, size = 10, prob = 0.6)
+```
+
+![](bin2.png)
+
+## Greater than or equal to
+
+The probability that $X$ is **greater than or equal** to $a$: $Pr(X \geq a)$: 
+
+$$function(a-1, \ ..., \ lower.tail = F)$$
+
+### Example
+
+- $Pr(X \geq 5)$, assume $X \sim Binomial(n = 10, \ p = 0.6)$  
+
+```{r}
+pbinom(4, size = 10, prob = 0.6, lower.tail = F)
+```
+
+![](bin3.png)
+
+## Greater than 
+
+The probability that $X$ is **greater than** $a$: $Pr(X > a)$: 
+
+$$function(a, \ ..., \ lower.tail = F)$$
+
+### Example
+
+- $Pr(X > 5)$, assume $X \sim Binomial(n = 10, \ p = 0.6)$  
+
+```{r}
+pbinom(5, size = 10, prob = 0.6, lower.tail = F)
+```
+
+![](bin4.png)
