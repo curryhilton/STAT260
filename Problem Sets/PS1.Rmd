@@ -40,7 +40,7 @@ d) What is the IQR of the data set?
 e) What is the lower fence?  
 f) What is the upper fence?  
 g) How many "extreme" values are present in the data set?  
-h) Generate the box and whiskers plot using the "boxplot" R function (attach). Ensure the boxplot created is consistentt with the results derived in the previous tasks.  
+h) Generate the box and whiskers plot using the "boxplot" R function (attach). Ensure the boxplot created is consistent with the results derived in the previous tasks.  
 
 # Q4
 

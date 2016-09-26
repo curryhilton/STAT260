@@ -22,8 +22,3 @@ During the holiday season, some shoppers prefer shopping online and some prefer 
 
 - What is the probability that *exactly* 4 shoppers in the sample prefered shopping at a physical store?
 
-### Q4
-
-According to the National Oceanic and Atmospheric Admistration (NOAA), the state of Alabama averages 25 tornadoes every April (30 days).
-
-- What is the probability of less than 3 tornadoes per day?

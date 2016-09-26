@@ -1,0 +1,49 @@
+---
+title: "Group Assignment #4"
+author: "Curry W. Hilton"
+date: "September 22, 2016"
+output: pdf_document
+---
+
+The heights of female college students are considered to be normally distributed with mean height of 61.52 inches and standard deviation of 4.58 inches.  
+
+# Q1
+What is the z-value (standardized value) associated with a female's height of 64 inches?  
+
+A) -0.541487
+B) 1.73921
+C) 2.44982
+D) 0.541487  
+
+# Q2
+What is the probability of a female's height being less than 58 inches?  
+
+A) 0.541487
+B) 0.221077
+C) 0.210771
+D) 0.541487
+
+# Q3
+What is the probability of a female's height being greater than 64 inches?  
+
+A) 0.0.2859
+B) 0.266077
+C) 0.240771
+D) 0.294086
+
+# Q4
+What is the probability of a female's height being between 1.5 standard deviations of the mean?   
+
+A) 0.866
+B) 0.889
+C) 0.134
+D) 0.112  
+
+# Q5
+What is the quantile or female's height assoicated with the 75% percentile?  
+
+A) 65.847
+B) 64.609
+C) 62.567
+D) 68.754  
+

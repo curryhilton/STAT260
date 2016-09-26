@@ -4,6 +4,12 @@ author: "Curry W. Hilton"
 output: html_document
 ---
 
+### Q4
+
+According to the National Oceanic and Atmospheric Admistration (NOAA), the state of Alabama averages 25 tornadoes every April (30 days).
+
+- What is the probability of less than 3 tornadoes per day?
+
 ### Q1
 
 A sample of 20 observations have been collected on number of beers consumed by students on home Bama baseball games. The sample mean and sample standard deviation are, $\bar{x} = 5$ and $s = 2$, respectively. The population standard deviation is *unknown* in this case. What is the 95% conﬁdence interval for the true population mean?

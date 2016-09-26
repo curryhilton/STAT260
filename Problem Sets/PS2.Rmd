@@ -1,0 +1,53 @@
+---
+title: 'Problem Set #2'
+author: 'Name(s): ________________________'
+output: pdf_document
+---
+
+## Q1
+
+GRE (Graduate Records Exam) scores are distributed nearly normally with mean 450 and standard deviation 100. GMAT (Graduate Management Admission Test) scores are distributed nearly normally with mean 30 and standard deviation 6. A college admissions officer for The University of Alabama's MBA (Master Business Adminstration) program wants to determine which of the two applicants scored better on their standardized test with respect to the other test takers: James, who earned an 545 on his GRE, or Jake, who scored a 35 on his
+GMAT.  We cannot compare the two raw scores directly since they are on different scales and criteria.  Determine who performed better from a standardized testing perspective, James or Jake?  Explain your reasoning.
+
+## Q2
+
+American Bearings is a leading manufacturer of ball bearings for industrial products.  Use the "ballBearing" dataset and the variable of interest, 'lifeSpan' in the openintro package.  Assume this dataset represents the population and it distributed nearly normal. Quality control engineers want to ensure that ball bearings meet certain specification limits.  In this instance the variable of interest measures the life span of ball bearings being tested.  Such limits are constructed from certain quantiles.  The lower limit is defined by the quantile associated with the probability of 10% of the population of produced ball bearings falling below ($Pr(X \leq x) = 0.1$). The upper limit is defined by the quantile associated with the probability of 10% of the population of produced ball bearings being above ($Pr(X \geq x) = 0.1$). Any observation of 'lifeSpan' that falls below or above such limits will be considered out of control.
+
+a) Determine if the assumption of normality for the distribution of ball bearings is true.  (*Hint: Produce a histogram)
+
+b) Since the "ballBearing" dataset is representative of the population, determine the population parameters for $\mu$ and $\sigma$ (*Round answers to the nearest two decimal places...uses the rounded answers in parts c and d*).
+
+c) Determine the specification limits (quantiles) for quality control purposes.
+
+d) What is the probability of being $\pm 2$ standard deviations from the mean?
+
+
+## Q3
+
+According to the National Oceanic and Atmospheric Admistration (NOAA), the state of Alabama averages 25 tornadoes every April (30 days). Assume the distribution of tornado occurences are exponentially distributed.  Provide R functions used and results.
+
+a) What is the probability of less than 3 tornadoes per day?
+
+b) What is the probability of more than 2 tornadoes per day?
+
+
+
+## Q4
+
+A fair coin is flipped 4 times and the outcome (heads: H or tails: T) is recorded.  Since the coin is considered "fair", the probability of receiving heads or tails is 0.5 per flip.  Provide R functions used and results.
+
+a) Determine the number of potential outcomes of this experiment.  List below.  For example, {H, H, H, H}, {H, T, H, T}, etc.
+
+b) Is this considered a binomial experiment?  Explain. (*Hint: Look in the notes for the criteria)
+
+c) What is the expected number of heads (H)?  What is the standard deviation of heads (H)?
+
+d) What is the probability of all heads?
+
+e) What is the probability of at least one head?
+
+f) What is the probability of 2 or more heads?
+
+
+
+

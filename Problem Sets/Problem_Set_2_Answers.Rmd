@@ -1,5 +1,5 @@
 ---
-title: 'Problem Set #2'
+title: 'Problem Set #2 Answer Key'
 author: 'Name(s): ________________________'
 date: 'Due Date: August 1, 2016'
 output: html_document
@@ -13,34 +13,64 @@ a)
 
 Calculate the sample statistics, $\bar{x}$ and $s$ for the sample.  
 
+```{r}
+library(openintro)
+xbar <- mean(cars$weight)
+xbar
+s<- sd(cars$weight)
+s
+```
 
-
+$$\bar{x}=3037.407$$
+$$s = 657.6643$$
 
 b)  
 
 Determine the 99% confidence interval for the true population mean using the parameter estimate $\bar{x}$.  Remember all the necessary step and show all your work! (**Hint**: Find $\alpha$, $t_{\frac{\alpha}{2}}$ (use R function qt(p,df)), standard error, and MOE)  
 
+```{r}
+n <- length(cars$weight)
+CL <- 0.99
+alpha <- 1-CL
+alpha
+t <- qt(alpha/2, n-1, lower.tail = FALSE)
+t
+ci <- xbar + c(-1,1)*t*(s/sqrt(n))
+ci
 
+```
 
+$$\bar{x} \pm t_{\frac{\alpha}{2}}\frac{s}{\sqrt{n}}$$
+$$3037.407 \pm 2.671823(\frac{657.6643}{\sqrt{54}})$$
+$$CI_{0.99} = (2798.288, 3276.527)$$
 
 ## 2.  
 
 a)  Assume the population standard deviation is *known*.  Determine a theoretical function that will represent the sample size ($n$) required to receive a certain margin of error.  (**Hint**: Start by writing down the function for MOE)
 
-
+$$MOE = Z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}$$
+$$\frac{MOE}{Z_{\frac{\alpha}{2}}}=\frac{\sigma}{\sqrt{n}}$$
+$$\sqrt{n}\frac{MOE}{Z_{\frac{\alpha}{2}}}=\sigma$$
+$$\frac{\sqrt{n}\frac{MOE}{Z_{\frac{\alpha}{2}}}}{\frac{MOE}{Z_{\frac{\alpha}{2}}}}=\frac{\sigma}{\frac{MOE}{Z_{\frac{\alpha}{2}}}}$$
+$$\sqrt{n}=\frac{Z_{\frac{\alpha}{2}}\sigma}{MOE}$$
+$$(\sqrt{n})^2=(\frac{Z_{\frac{\alpha}{2}}\sigma}{MOE})^2$$
+$$n=(\frac{Z_{\frac{\alpha}{2}}\sigma}{MOE})^2$$
  
-
 b)  If the population standard deviation is $\sigma = 9$, the level of significance is $\alpha = 0.1$, and the necessary $MOE = 2$, what is the required sample size?  
 
+```{r}
+z <- qnorm(0.1/2,0,1,lower.tail = FALSE)
+z
+```
 
-
+$$n=(\frac{Z_{\frac{\alpha}{2}}\sigma}{MOE})^2$$
+$$n=(\frac{9(1.645)}{2})^2=54.79701$$
 
 ## 3.  
 
 Explain the importance of a Central Limit Theorem (CLT) in basic terms.  Expand on the necessary criteria to utilize a CLT.
 
-
-
+*...refer to notes...*
 
 ## 4.  
 
@@ -48,16 +78,50 @@ The Timken Company manufacturers ball bearings for industrial products.  Use the
 
 a)  Determine the appropriate hypothesis test (Use the level of significane, $\alpha = 0.05$)  
 
-
-
+$$H_0: \mu \geq 7$$
+$$H_a: \mu < 7$$
 
 b)  Use whatever hypothesis testing procedure (p-value, classic test statistic, confidence interval, or computational) to the test the hypothesis constructed in part a.  Show all work and state conclusion.  
 
 
+```{r}
+mu <- 7
+n <- length(ballBearing$lifeSpan)
+x_bar <- mean(ballBearing$lifeSpan)
+x_bar
+sigma <- 1.2
+sigma
+cv <- qt(0.05, 74)
+cv
+tstat <- (x_bar - mu)/(sigma/sqrt(n))
+tstat
+```
 
+$$CV = -1.6657$$
+
+$$t_{stat} = -1.046158$$
+
+Since the calculated t-statistic does not fall into the rejection zone, we fail to reject the null hypothesis.  There is not enough evidence to discredit the claim that the manufacturing process produces ball bearings with lifespans of at least 7 years.
 
 ## 5.  
 
 In statistical inference such test statistics $z$ and $t$ are used when certain assumptions about the population parameter are understood.  Recall, the $z$ statistic/value is used when the population standard deviation is known and the $t$ statistic/value is used when the population standard deviation is unknown (we use the sample standard deviation, $s$ in this case).  Explain the case where it would not matter what test statistic, $z$ or $t$ could be used and the resulting hypothesis test or confidence interval would provide approximately the same result. Provide an example to help argue such.
 
- 
+```{r}
+z_0 <- qnorm(0.05, 0, 1, lower.tail = FALSE) # z value from standard normal dist with alpha = 0.05
+z_0
+t_0 <- qt(0.05, 9, lower.tail = FALSE) # t value from t-distribution with n = 10
+t_0
+t_1 <- qt(0.05, 19, lower.tail = FALSE) # t value from t-distribution with n = 20
+t_1
+t_2 <- qt(0.05, 29, lower.tail = FALSE) # t value from t-distribution with n = 30
+t_2
+t_3 <- qt(0.05, 39, lower.tail = FALSE) # t value from t-distribution with n = 40
+t_3
+t_4 <- qt(0.05, 49, lower.tail = FALSE) # t value from t-distribution with n = 50
+t_4
+t_5 <- qt(0.05, 99, lower.tail = FALSE) # t value from t-distribution with n = 100
+t_5
+```
+
+As you can see in the example above...as the number of observations in each sample increases, the values for the $z$ and $t$ converge.  This is a prime example of the importance of a Central Limit Theorem.  Regardless of the population's distribution, the sampling distribution for any statistic can be conditioned as normal when number of observations are large! 
