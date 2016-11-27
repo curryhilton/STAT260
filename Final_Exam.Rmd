@@ -1,0 +1,174 @@
+---
+title: "Final Exam"
+author: "Curry W. Hilton"
+output: html_document
+---
+
+**Instructions**:  Please select the correct answer from the choices given.  Enter the "Letter" (A, B, C, or D) for multiple choice type questions and for True or False type questions, enter the "Letter" either (A = TRUE or B = FALSE) depending on the correct answer.  This exam is due at 11:59 PM on August 5, 2016.  All questions must be answered and submitted within the Midterm Exam link found on BlackBoard.  No late submissions will be accepted regardless the circumstances.  You are to work *independently* on this exam.  You are allowed to use any resources available, notes from class, your book, the previous group assignments/problem set/labs, internet, etc.  Any questions regarding wording of questions or for further clarity must be directed through me (I promise to provide a response within 1 hour from the time of the email or text).  Just to reiterate, you are bound under the student conduct agreement for testing procedures and will be held accountable for any academic misconduct.  Do work!
+
+### 1.  
+
+What is the standard error when the population standard deviation is *unknown*, the number of observations in the sample is 25, and the sample standard deviation is 5?  
+
+A) 1
+B) 5
+C) -5
+D) Not enough information given  
+
+### 2.  
+**True or False**: The margin of error for a confidence interval when $\alpha = 0.05$ is larger than the margin of error for a confidence interval when $\alpha = 0.10$.  
+
+A) True
+B) False  
+
+### 3.
+**True or False**: A statistical researcher would *fail to reject* the null hypothesis in a one-tailed hypothesis test with the calculated z-test statistic, $z_{\frac{\alpha}{2}}=1.14$, and $\alpha = 0.10$.  Assume the population standard deviation is *known*.
+
+A) True
+B) False 
+
+### 4.
+A survey taken in 2014 showed that the average age men get married is 23.44.  A social scientist believes this value has increased in 2015 and decides to propose a study with the following hypothesis test.  Her sample results in a mean of 24.5. Is the hypothesis test constructed properly to conclude on the investigation (**True or False**)?  
+
+$$H_0: \mu \leq 24.5$$
+$$H_a: \mu > 24.5$$
+
+A) True
+B) False 
+
+### 5.
+A sample of 50 observations have been collected on number of beers consumed by students on home Bama baseball games.  The sample mean and sample standard deviation are, $\bar{x} = 5$ and $s = 2$, respectively.  The population standard deviation is *unknown* in this case. The 95% confidence interval for the true population mean is: 
+
+A) (4.43 - 5.57)
+B) (1.56 - 4.47)
+C) (4.501568 - 5.498432)
+D) (3.5 - 7.5)  
+
+### 6.
+A sample of 150 observations of some quantitative variable is taken from a *non-normally* distributed population.  The population standard deviation is *unknown*.  The sample mean and sample standard deviation are 80 and 14, respectively. The sampling distribution of the sample mean, $\bar{x}$ is: 
+
+A) Non-normal with a mean of 80 and standard error of 1.143095
+B) Normal with a mean of 80 and standard error of 1.143095
+C) Normal with a mean of 80 and standard error of 14
+D) Non-normal with a mean of 80 and standard error of 14 
+
+### 7.
+When building a confidence interval for the population mean, $\mu$, what is the minimum sample size ($n$) required to achieve a 90% confidence level and a desired margin of error of 8 when the population standard deviation, $\sigma$ is 33?   
+
+A) 6
+B) 7 
+C) 47
+D) 46
+
+### 8.
+**True of False**: The level of significance, $\alpha$ is also known as the probability of commiting a Type II error.  
+
+A) True
+B) False  
+
+### 9.
+What is the critical value associated with a one-tail lower hypothesis test with population standard deviation unknown, $\alpha=0.045$, and $n=21$?  
+
+A) 1.78164
+B) -1.78164
+C) -1.777339
+D) 1.777339  
+
+### 10.
+When performing statistical inference on the population mean, the best estimator of such parameter is the:   
+
+A) Standard error of the population mean
+B) The confidence interval for the population mean
+C) The margin of error for the population mean
+D) The sample mean  
+
+-------
+
+Use the following problem description to answer questions 11, 12, 13, 14, 15, & 16.
+
+![](slr_DrB.png)
+
+### 11.
+What is the predicted service *Time* required on a service call for a client that has five copiers?
+
+A) 74.6
+B) 77.2
+C) 71.8
+D) 78.9
+
+### 12. 
+What is the coefficient of correlation ($r_{xy}$) between *Service* and *Time*?
+
+A) 0.916
+B) 0.934
+C) 0.957
+D) 0.978
+
+### 13.
+One of the data points is marked on the scatterplot by an "**x**".  The (*X, Y*) coordinates for this point are (8, 100).  What is the residual or error value associated with this data point?
+
+A) -19.7
+B) 14.8
+C) -16.3
+D) 18.4
+
+### 14.
+What is the measure of total variability in *Time* spent on service calls?
+
+A) 80377
+B) 3416
+C) 969
+D) 76960
+
+### 15. 
+Which of the following statements is most likely incorrect?
+
+A) The average amount of time spent servicing a copier is about 15 minutes per machine, regardless of the number of copiers at the customer's location
+B) The estimated error variance is about 76960
+C) $\beta_0$ represents the true (model) value for the expected or average *Time* to service zero copiers
+D) Although the estimate intercept is $\beta_0 = -0.58$, it is reasonably possible that the true value of $\beta_0$ is zero
+
+### 16. 
+What proportion of total variability is explained or accounted for by the number of copiers *Serviced*?
+
+A) 0.916
+B) 0.934
+C) 0.957
+D) 0.978
+
+-------
+
+Use the “credits” dataset in the openintro package to answer the following four questions (17, 18, 19, & 20). The variable of interest in the “credits” dataset is ‘credits’.  We will assume the dataset "credits" is a **sample** taken from the population of all students enrolling as Freshman at UA.  Each observation in the "credits" dataset represents a randomly selected incoming Freshman's number of transfer credits. The population standard deviation is *unknown*.
+
+### 17.
+What is the best estimate of the population parameter, $\mu$ (The average number of credits transfered by all incoming Freshman at UA)?
+
+A) 18.95
+B) 13.65
+C) 13.25
+D) 14.55
+
+### 18.
+What is the standard error associated with the estimation of the population parameter, $\mu$?
+
+A) 1.90891
+B) 13.65
+C) 1.90981
+D) 0.19089
+
+### 19.
+What is the critical value, $t$ associated with a 97% confidence interval of the true population parameter, $\mu$?
+
+A) $\pm$ 1.9645
+B) $\pm$ 2.5769
+C) $\pm$ 2.2018
+D) $\pm$ 1.6450
+
+### 20.
+What is the upper value for the confidence interval for the true population parameter, $\mu$?
+
+A) 13.65
+B) 13.22969
+C) 14.07031
+D) 14.52399
+

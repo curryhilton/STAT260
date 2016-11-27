@@ -1,0 +1,19 @@
+---
+title: "Extra Credit"
+author: "Curry W. Hilton"
+date: "Due: December 6, 2016 @ 5:00 PM CST"
+output: pdf_document
+---
+
+I was watching television the other night when a promotional ad aired stating that *"95% of customers who switched to Allstate saved an average of $496 on annual insurance premiums"*.  So...I started thinking about this claim and had some thoughts of my own regarding the "statistics" provided.  
+
+### Instructions
+
+- Write one paragraph (No more than 4 sentences)
+- Elaborate on the claim by Allstate.  I want you to investigate such statement from different angles
+- Submit via Blackboard by due date and time provided above in word or pdf format (as attachment)
+- Grading: Excellent Answer (10 Points); Good Answer (7 Points); Average Answer (4 Points); Any Other Decent Answer (1 Point)
+
+**Notes**: This exercise, specifically the instructions may seem vague.  This is on purpose.  I will allow you the latitude to explore and comment as you deem necessary.  **No clarification will be provided**. There is no negotiation on grading and no late submissions.  Extra credit points will be applied to your lowest problem set score.
+
+
